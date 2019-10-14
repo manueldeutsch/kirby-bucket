@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 var sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
-    minifycss = require('gulp-minify-css'),
+    cleancss = require('gulp-clean-css'),
     rename = require('gulp-rename');
 
 var browserify = require('browserify'),
@@ -46,13 +46,12 @@ function styles() {
       .on('error', sass.logError)
     )
     .pipe(autoprefixer())
-    .pipe(minifycss())
+    .pipe(cleancss())
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets/dist'))
     .pipe(browserSync.reload({stream: true}))
 }
-
 
 function javascript() {
   return browserify({entries: 'assets/js/main.js', debug: true})

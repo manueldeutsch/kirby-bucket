@@ -1,0 +1,33 @@
+{
+  "name": "kirby-kickstart-boilerplate",
+  "version": "1.1.2",
+  "description": "Simple gulp script with BrowserSync, SCSS, Sourcemaps, Autoprefixer, Minify, ES6 & Babel support.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mantsch/kirby-kickstart-boilerplate.git"
+  },
+  "author": "Manuel Deutsch",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "cookies-eu-banner": "^2.0.1",
+    "fastclick": "^1.0.6"
+  }
+}

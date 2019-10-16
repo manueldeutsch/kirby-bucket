@@ -1,0 +1,10 @@
+Title: Home
+
+----
+
+Text:
+
+# Hello Kirby
+
+This is the *Kirby Kickstart Boilerplate* example text.
+Go to the (link: /panel text: panel).

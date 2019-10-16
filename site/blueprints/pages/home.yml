@@ -1,0 +1,10 @@
+title: Home
+icon: 🏠
+
+options:
+  status: false
+
+fields:
+  text:
+    label: Intro Text
+    type: textarea

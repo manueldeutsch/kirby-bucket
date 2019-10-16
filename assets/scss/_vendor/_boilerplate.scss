@@ -1,0 +1,32 @@
+/* Boilerplate specific styles */
+/* Feel free to delete this  */
+
+body{
+  background: #f7f7f7;
+  line-height: 1.6;
+  color: #444;
+  text-align: center;
+}
+
+a {
+  color: #444;
+}
+
+.header,
+.footer {
+  padding: 10px;
+}
+
+.header {
+  border-bottom: 1px dashed #444;
+  text-align: left;
+}
+
+.footer {
+  border-top: 1px dashed #444;
+  text-align: right;
+}
+
+main {
+  margin-top: 10%;
+}

@@ -1,0 +1,17 @@
+type: group
+
+fields:
+  cookie:
+    label: Cookie
+    type: headline
+  cookie_text:
+    label: Text
+    type: textarea
+  cookie_accept:
+    label: Button Accept
+    type: text
+    width: 1/2
+  cookie_reject:
+    label: Button Reject
+    type: text
+    width: 1/2

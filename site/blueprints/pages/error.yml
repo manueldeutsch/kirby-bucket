@@ -1,0 +1,9 @@
+title: Error
+
+options:
+  status: false
+
+fields:
+  text:
+    type: textarea
+    size: huge

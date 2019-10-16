@@ -1,0 +1,18 @@
+type: group
+
+fields:
+  seo:
+    label: SEO
+    type: headline
+  seo_title:
+    label: Title
+    type: text
+    width: 1
+  seo_description:
+    label: Description
+    type: textarea
+  seo_image:
+    label: Image
+    type: files
+    options: images
+    width: 1

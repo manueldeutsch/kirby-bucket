@@ -1,5 +1,5 @@
 {
     "require": {
-        "getkirby/plainkit": "^3.2"
+        "getkirby/cms": "^3.2"
     }
 }

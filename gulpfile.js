@@ -1,16 +1,16 @@
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     connect = require('gulp-connect-php'),
     browserSync = require('browser-sync');
 
-var sass = require('gulp-sass'),
+let sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
     cleancss = require('gulp-clean-css'),
     rename = require('gulp-rename');
 
-var browserify = require('browserify'),
+let browserify = require('browserify'),
     babelify = require('babelify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
@@ -20,20 +20,15 @@ function serve() {
   connect.server({
     stdio: 'ignore',
     router: 'kirby/router.php'
-  }, function (){
+  }, function () {
     browserSync({
       proxy: '127.0.0.1:8000',
       cors: true
     });
   });
 
-  gulp.watch('site/templates/**/*.php').on('change', function () {
-    browserSync.reload();
-  });
-
-  gulp.watch('site/snippets/**/*.php').on('change', function () {
-    browserSync.reload();
-  });
+  gulp.watch('site/templates/**/*.php').on('change', function () { browserSync.reload() });
+  gulp.watch('site/snippets/**/*.php').on('change', function () { browserSync.reload() });
 
   gulp.watch('assets/scss/**/*.scss', styles);
   gulp.watch('assets/js/**/*.js', javascript);
@@ -68,3 +63,4 @@ function javascript() {
 }
 
 gulp.task('default', gulp.series(serve))
+gulp.task('build', gulp.series(styles, javascript))

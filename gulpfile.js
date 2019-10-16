@@ -62,5 +62,5 @@ function javascript() {
     .pipe(browserSync.reload({stream: true}))
 }
 
-gulp.task('default', gulp.series(serve))
+gulp.task('default', gulp.series(styles, javascript, serve))
 gulp.task('build', gulp.series(styles, javascript))

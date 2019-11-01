@@ -1,15 +1,15 @@
-@import "_vendor/_normalize.scss";
-@import "_vendor/_cookie.scss";
-@import "_vendor/_boilerplate.scss";
+@import "_vendor/normalize";
+@import "_vendor/cookie";
+@import "_vendor/boilerplate";
 
-@import "common/_variables.scss";
-@import "common/_typo.scss";
-@import "common/_fonts.scss";
-@import "common/_global.scss";
+@import "common/variables";
+@import "common/typo";
+@import "common/fonts";
+@import "common/global";
 
-@import "components/_header.scss";
-@import "components/_footer.scss";
+@import "components/header";
+@import "components/footer";
 
-@import "pages/_default.scss";
-@import "pages/_error.scss";
-@import "pages/_home.scss";
+@import "pages/default";
+@import "pages/error";
+@import "pages/home";

@@ -10,3 +10,7 @@ import attachFastClick from 'fastclick';
 
 attachFastClick(document.body);
 document.addEventListener("touchstart", function(){}, true);
+
+/* COMPONENTS */
+
+import './components/logger.js';

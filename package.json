@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "cookies-eu-banner": "^2.0.1",
-    "fastclick": "^1.0.6"
+    "fastclick": "^1.0.6",
+    "normalize.css": "^8.0.1"
   }
 }

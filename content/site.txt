@@ -1,12 +1,12 @@
-Title: Kirby Kickstart Boilerplate
+Title: Kirby Rocket 🚀
 
 ----
 
-Seo-title: Kirby Kickstart Boilerplate | Nice Title
+Seo-title: Kirby Rocket 🚀
 
 ----
 
-Seo-description: Simple boilerplate with BrowserSync, SCSS, Sourcemaps, Autoprefixer, Minify, ES6 & Babel support for Kirby 3 CMS.
+Seo-description: Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3 CMS with some useful frontend tools.
 
 ----
 

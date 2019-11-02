@@ -4,7 +4,6 @@ Title: Home
 
 Text:
 
-# Hello Kirby
+# Kirby Rocket 🚀
 
-This is the *Kirby Kickstart Boilerplate* example text.
-Go to the (link: /panel text: panel).
+Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3 CMS, with some useful frontend tools.

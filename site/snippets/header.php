@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="canonical" href="<?php echo html($page->url()) ?>" />
   <title><?= $site->seo_title() ?> | <?= $page->title() ?></title>
-  
+
   <meta name="description" content="<?= $site->seo_description()->html() ?>">
   <meta property="og:title" content="<?= $site->seo_title() ?> | <?= $page->title() ?>" />
   <meta property="og:type" content="website" />
@@ -25,5 +25,5 @@
 <body class="<?= $page->title()->lower() ?>">
 
   <header class="header">
-    <a class="logo" href="<?= $site->url() ?>">Kirby Kickstart Boilerplate</a>
+    <a class="logo" href="<?= $site->url() ?>">Kirby Rocket</a>
   </header>

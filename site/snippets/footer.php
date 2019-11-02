@@ -1,6 +1,7 @@
   <footer class="footer">
     <span>&copy; <?= date('Y') ?></span> -
-    <a href="<?= url() ?>/imprint">Imprint</a>
+    <a href="<?= url() ?>/imprint">Imprint</a> | 
+    <a href="<?= url() ?>/panel">Panel</a>
   </footer>
 
   <div id="cookies-eu-banner" style="display: none;">

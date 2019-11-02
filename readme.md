@@ -1,22 +1,16 @@
 # Kirby Rocket 🚀
 
-
-Kirby Rocket is a simple developer theme or boilerplate for Kirby 3 CMS with some useful frontend tools.
-
+Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3 CMS with some useful frontend tools.
 
 ## Tools
 
 Its mainly based on a **gulp** script with the following tasks:
 
-#### 1. Server
-Start your local server instantly and let **BrowserSync** automatically reload your page on changes.
+- **Server:** Start your local server instantly and let **BrowserSync** automatically reload your page on changes.
 
-#### 2. CSS
-The **SCSS** will be automatically compiled to CSS, with additional **SourceMaps**, **Autoprefixer** and **Minify**.
+- **CSS:** The **SCSS** will be automatically compiled to CSS, with additional **SourceMaps**, **Autoprefixer** and **Minify**.
 
-#### 3. JavaScript
-
-It will use **Browserify** for easier imports and **Babel** for better **ES6** support. The JS file will be minified with additional SourceMaps.
+- **Javascript:** It will use **Browserify** for easier imports and **Babel** for better **ES6** support. The JS file will be minified with additional SourceMaps.
 
 ## Content
 

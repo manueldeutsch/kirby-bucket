@@ -1,10 +1,10 @@
 {
-  "name": "kirby-kickstart-boilerplate",
-  "version": "1.2.0",
-  "description": "Simple boilerplate with BrowserSync, SCSS, Sourcemaps, Autoprefixer, Minify, ES6 & Babel support.",
+  "name": "kirby-rocket",
+  "version": "1.3.0",
+  "description": "Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3 CMS.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mantsch/kirby-kickstart-boilerplate.git"
+    "url": "git+https://github.com/mantsch/kirby-rocket.git"
   },
   "author": "Manuel Deutsch",
   "license": "ISC",

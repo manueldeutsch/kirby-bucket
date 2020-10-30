@@ -17,10 +17,6 @@
   <?php endif ?>
 
   <?= css(['assets/dist/main.min.css?v1.0', '@auto']) ?>
-
-  <!--[if lt IE 9]>
-    <link rel="dns-prefetch" href="//html5shiv.googlecode.com">
-  <![endif]-->
 </head>
 <body class="<?= $page->title()->lower() ?>">
 

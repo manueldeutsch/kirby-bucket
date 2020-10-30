@@ -1,6 +1,6 @@
 {
   "name": "kirby-rocket",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3 CMS.",
   "repository": {
     "type": "git",
@@ -9,10 +9,10 @@
   "author": "Manuel Deutsch",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
+    "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.6.3",
     "babelify": "^10.0.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.13",
     "browserify": "^16.5.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "cookies-eu-banner": "^2.0.1",
-    "fastclick": "^1.0.6",
     "normalize.css": "^8.0.1"
   }
 }

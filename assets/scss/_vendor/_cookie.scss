@@ -1,5 +1,5 @@
 #cookies-eu-banner {
-  position: absolute;
+  position: fixed;
   bottom: 60px;
   right: 10px;
   left: 10px;
@@ -29,7 +29,7 @@
     border-radius: 3px;
 
     &:hover {
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       color: #444;
       cursor: pointer;
     }

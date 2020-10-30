@@ -19,7 +19,7 @@ Some basic content is included:
 - Pages: home, error, default
 - Components: header, footer, cookie banner, seo
 - SCSS folder & files structure
-- 3rd party tools: Fastclick, CookiesEuBanner, Normalize.css
+- 3rd party tools: CookiesEuBanner, Normalize.css
 
 ## Install
 
@@ -28,7 +28,6 @@ Run `npm install` to install the development dependencies and `composer install`
 Start Browsersync with `gulp`.
 
 Open `localhost:3000` to view the page or `localhost:3000/panel` to open the panel.
-
 
 ## Deploy
 

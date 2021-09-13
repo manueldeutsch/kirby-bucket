@@ -1,5 +1,5 @@
 /* COOKIES / ANALYTICS */
-import CookiesEuBanner from 'cookies-eu-banner';
+import CookiesEuBanner from "cookies-eu-banner";
 
 new CookiesEuBanner(function () {
   // Your code to launch when user accept cookies
@@ -7,4 +7,4 @@ new CookiesEuBanner(function () {
 
 /* COMPONENTS */
 
-import './components/logger.js';
+import "./components/logger.js";

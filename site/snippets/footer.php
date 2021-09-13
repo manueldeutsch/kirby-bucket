@@ -17,6 +17,6 @@
     </div>
   </div>
 
-  <script src="<?= $site->url() ?>/assets/dist/main.min.js?v1.0"></script>
+  <script src="<?= $site->url() ?>/assets/dist/js/main.js?v1.0"></script>
 </body>
 </html>

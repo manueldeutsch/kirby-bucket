@@ -47,5 +47,4 @@ Icon
 
 # Boilerplate only
 /kirby/
-composer.lock
-package-lock.json
+.parcel-cache

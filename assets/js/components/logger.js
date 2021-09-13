@@ -1,3 +1,3 @@
-(function() {
-  console.log('test component imports')
+(function () {
+  console.log("test component imports");
 })();

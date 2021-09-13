@@ -1,4 +1,4 @@
-<?php snippet('header') ?>
+<?php snippet('header'); ?>
 
 <main class="default">
   <div class="wrapper">
@@ -11,4 +11,5 @@
   </div>
 </main>
 
-<?php snippet('footer') ?>
+<?php snippet('footer');
+?>

@@ -2,6 +2,14 @@
 
 Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3.5 CMS.
 
+## Install
+
+Run `npm install` to install the development dependencies and `composer install` to install **Kirby**.
+
+Start PHP's built-in server with `composer start` and run `npm run dev` for CSS and JS compiling.
+
+Open `localhost:8000` to view the page or `localhost:8000/panel` to open the panel.
+
 ## Tools
 
 Its mainly based on **parcel** with the following tasks:
@@ -19,31 +27,11 @@ Some basic content is included:
 -   SCSS folder & files structure
 -   3rd party tools: CookiesEuBanner, Normalize.css
 
-## Install
-
-Run `npm install` to install the development dependencies and `composer install` to install **Kirby**.
-
-Start PHP's built-in server with `php -S localhost:8000 kirby/router.php` and run `npm run dev` for CSS and JS compiling.
-
-Open `localhost:8000` to view the page or `localhost:8000/panel` to open the panel.
-
 ## Deploy
 
-For a simple deploy setup, you can use **codeship** (100 builds per month are free).
-The following **custom script** will build the project and copy the files via ftp to your server.
-This can be triggered in codeship when you push to your dev or master branch.
-
-```
-npm install
-composer install
-npm run build
-rm -rf node_modules
-rm -rf .git
-rm -rf .htaccess
-lftp -c "open -u $FTP_USER,$FTP_PASSWORD yourhostingdomain.com; set ssl:verify-certificate no; mirror -R ~/clone/ /yoursubfolder"
-```
-
-Don't forget to replace your domain in the script and set the ftp user and password as environment variables in codeship.
+For a simple and easy deploy, we use github actions.
+The action will build the page and deploy via FTP.
+Don't forget to add your secrets within github settings!
 
 ## Credits
 

@@ -8,3 +8,14 @@ fields:
   text:
     label: Intro Text
     type: textarea
+  layout:
+    label: Content
+    type: layout
+    layouts:
+      - "1/1"
+      - "1/2, 1/2"
+    fieldsets:
+      - image
+      - heading
+      - text
+      - button

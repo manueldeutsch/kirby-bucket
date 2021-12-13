@@ -14,9 +14,6 @@ status:
 pages:
   template: default
   create: default
-  template:
-    - home
-    - default
 
 fields:
   text:

@@ -6,6 +6,10 @@ Text:
 
 # Kirby Rocket 🚀
 
-Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3.5 CMS, with some useful frontend tools.
+Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3.6 CMS, with some useful frontend tools.
 
 (link: https://github.com/mantsch/kirby-rocket text: Github Repo)
+
+----
+
+Layout: 

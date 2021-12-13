@@ -1,7 +1,7 @@
 {
   "name": "kirby-rocket",
-  "version": "2.0.0",
-  "description": "Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3.5 CMS.",
+  "version": "2.0.1",
+  "description": "Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3.6 CMS.",
   "author": "Manuel Deutsch",
   "license": "ISC",
   "repository": {
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "parcel watch ./assets/scss/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url .",
-    "build": "parcel build --no-content-hash ./assets/scss/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url ."
+    "build": "parcel build --no-content-hash --no-source-maps ./assets/scss/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url ."
   },
   "browserslist": [
     "defaults",
@@ -21,12 +21,14 @@
     "@fullhuman/postcss-purgecss": "^4",
     "@parcel/transformer-image": "^2.0.0",
     "@parcel/transformer-sass": "^2.0.0",
+    "@prettier/plugin-php": "^0.17.5",
     "autoprefixer": "^10.2.6",
     "cssnano": "^5.0.6",
     "parcel": "^2.0.0",
     "postcss": "^8.2.4",
     "postcss-combine-media-query": "^1.0.1",
-    "postcss-purgecss": "^1.0.0",
+    "postcss-purgecss": "^2.0.3",
+    "prettier": "^2.4.0",
     "sass": "^1.32.5"
   },
   "dependencies": {

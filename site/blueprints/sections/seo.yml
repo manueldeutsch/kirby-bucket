@@ -8,9 +8,14 @@ fields:
     label: Title
     type: text
     width: 1
+    counter: true
+    maxlength: 60
   seo_description:
     label: Description
     type: textarea
+    buttons: false
+    counter: true
+    maxlength: 160
   seo_image:
     label: Image
     type: files

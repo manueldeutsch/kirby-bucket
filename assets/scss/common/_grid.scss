@@ -1,0 +1,50 @@
+.grid {
+  --columns: 12;
+  --gutter: 3rem;
+  display: grid;
+  grid-gap: var(--gutter);
+  grid-template-columns: 1fr;
+
+  margin-top: calc(var(--gutter));
+  margin-bottom: calc(var(--gutter) * 3);
+
+  @media screen and (min-width: 60rem) {
+    margin-bottom: 0;
+  }
+}
+
+.grid > .column {
+  margin-bottom: 0;
+
+  @media screen and (min-width: 60rem) {
+    margin-bottom: calc(var(--gutter) * 4);
+  }
+}
+
+// on mobile image first
+// second grid second row on place 1
+
+@media screen and (max-width: 60rem) {
+  .grid + .grid .column:nth-of-type(2) {
+    grid-row: 1;
+  }
+}
+
+.autogrid {
+  --gutter: 3rem;
+  --min: 10rem;
+  display: grid;
+  grid-gap: var(--gutter);
+  grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+  grid-auto-flow: dense;
+}
+
+@media screen and (min-width: 60rem) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .grid > .column {
+    grid-column: span var(--columns);
+  }
+}

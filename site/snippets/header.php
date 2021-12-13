@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?= $kirby->language()->code() ?>">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">

@@ -35,3 +35,8 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           server-dir: ${{ secrets.ftp_path }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.parcel-cache/**

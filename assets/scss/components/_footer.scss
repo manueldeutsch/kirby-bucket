@@ -1,4 +1,8 @@
 .footer {
   margin-top: auto;
   text-align: right;
+
+  a:hover {
+    text-decoration: underline;
+  }
 }

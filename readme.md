@@ -38,6 +38,12 @@ For a simple and easy deploy, we use github actions.
 The action will run composer, npm build and copy the files via FTP to your Server.
 Don't forget to add your secrets within github settings!
 
+## 🧴 Links
+
+-   Kirby docs: https://getkirby.com/docs
+-   Parcel docs: https://parceljs.org/docs/
+-   Favicon Generation: https://favicon.io
+
 ## 💫 Inspirational Quote
 
 > Seek not for fresher founts afar, just drop your bucket where you are.

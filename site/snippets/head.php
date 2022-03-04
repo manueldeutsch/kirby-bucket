@@ -31,11 +31,11 @@
   <meta property="og:image" content="<?= $image->url() ?>" />
   <?php endif; ?>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/iconsfavicon.ico">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= $site->url() ?>/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= $site->url() ?>/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= $site->url() ?>/assets/icons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="<?= $site->url() ?>/assets/iconsfavicon.ico">
+  <link rel="manifest" href="<?= $site->url() ?>/site.webmanifest">
 
   <?= css(["assets/dist/scss/main.css?v1.0", "@auto"]) ?>
 </head>

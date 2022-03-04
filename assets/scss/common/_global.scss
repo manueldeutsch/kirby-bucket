@@ -9,17 +9,22 @@ body {
   min-height: 100vh;
 }
 
+img,
+svg {
+  max-width: 100%;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .header,
 .footer {
-  padding: 10px;
-  background-color: #f6f6f6;
+  padding: 10px 20px;
+  background-color: var(--background);
 
   a {
     text-decoration: none;

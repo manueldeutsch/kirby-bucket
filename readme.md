@@ -1,6 +1,6 @@
 # 🪣 Kirby Bucket
 
-Kirby Bucket is the most simple developer theme and boilerplate for the Kirby CMS, to build websites fast and easy.
+Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS, to build websites fast and easy.
 
 ## 🚰 Install
 

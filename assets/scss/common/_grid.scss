@@ -1,3 +1,5 @@
+// Kirby defaults for layout field
+
 .grid {
   --columns: 12;
   --gutter: 3rem;
@@ -6,7 +8,7 @@
   grid-template-columns: 1fr;
 
   margin-top: calc(var(--gutter));
-  margin-bottom: calc(var(--gutter) * 3);
+  margin-bottom: calc(var(--gutter) * 2);
 
   @media screen and (min-width: 60rem) {
     margin-bottom: 0;
@@ -17,7 +19,7 @@
   margin-bottom: 0;
 
   @media screen and (min-width: 60rem) {
-    margin-bottom: calc(var(--gutter) * 4);
+    margin-bottom: calc(var(--gutter) * 2);
   }
 }
 

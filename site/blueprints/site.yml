@@ -1,33 +1,26 @@
 title: Site
 
 columns:
-  - width: 1/2
+  - width: 1
     sections:
       fields:
         type: fields
         fields:
           headline:
-            label: Pages & Files
+            label: 📰 Pages
             type: headline
       pages:
         type: pages
         template:
           - home
           - default
-          - error
+        image: icon
+        layout: cards
+        size: tiny
 
-      files:
-        headline: Files
-        type: files
-        template: list
-
-  - width: 1/2
+  - width: 1
     sections:
       seo:
         type: fields
         fields:
           seo: sections/seo
-      cookie:
-        type: fields
-        fields:
-          cookie: sections/cookie

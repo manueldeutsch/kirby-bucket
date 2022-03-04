@@ -1,3 +1,3 @@
 (function () {
-  console.log("test component imports");
+  console.log("i'm a logger");
 })();

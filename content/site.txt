@@ -1,25 +1,17 @@
-Title: Kirby Rocket 🚀
+Title: Kirby Bucket
 
 ----
 
-Seo-title: Kirby Rocket 🚀
+Seo-title: Kirby Bucket - A simple developer theme and boilerplate.
 
 ----
 
-Seo-description: Kirby Rocket is a simple developer theme and boilerplate for the Kirby 3 CMS with some useful frontend tools.
+Seo-description: Kirby Bucket is the most simple developer theme and boilerplate for the Kirby CMS. Build with Parcel, Sass and a bucket of other tings.
 
 ----
 
-Seo-image: 
+Seo-image: - social.jpg
 
 ----
 
-Cookie-text: Yes, we use cookies to analyze and optimize this website. You can read more about it (link: /imprint text: here).
-
-----
-
-Cookie-accept: Accept
-
-----
-
-Cookie-reject: Reject
+Centertext: <h1><strong>Exklusive Wünsche</strong> <em>inklusive.</em></h1><p>Wir geben Wachstum Raum. Als Immobilienberater, Vermittler und Verwalter von gewerblichen Immobilien sowie Investitions- und Wohnobjekten arbeiten wir partnerschaftlich, leidenschaftlich und finden mit Herz und Sachverstand genau die Lösung, die zu Ihren Zukunftsvorstellungen passt. Unser Denken ist nach oben offen. Ihre Möglichkeiten sind es auch.</p><p><a href="/leistungen" title="Leistungen" rel="noopener noreferrer">Mehr erfahren</a></p>

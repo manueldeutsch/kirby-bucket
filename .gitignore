@@ -45,6 +45,6 @@ Icon
 # ---------------
 /assets/dist/
 
-# Boilerplate only
+# Boilerplate
 /kirby/
 .parcel-cache

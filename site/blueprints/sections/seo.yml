@@ -1,23 +1,30 @@
 type: group
-
 fields:
   seo:
-    label: SEO
+    label: ⚡️ SEO
     type: headline
+
   seo_title:
     label: Title
-    type: text
+    type: textarea
+    buttons: false
     width: 1
     counter: true
     maxlength: 60
+    width: 1/2
+
   seo_description:
     label: Description
     type: textarea
     buttons: false
     counter: true
     maxlength: 160
+    width: 1/2
+
   seo_image:
     label: Image
     type: files
     options: images
-    width: 1
+    multiple: false
+    width: 1/2
+

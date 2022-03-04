@@ -45,13 +45,116 @@ RewriteRule ^(.*) index.php [L]
 # pass the Authorization header to PHP
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
-# compress text file responses
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+  # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+  # Data interchange
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rdf+xml                   "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/schema+json               "access plus 0 seconds"
+    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+  # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+  # HTML - Behält die Website eine Stunde im Cache, neues wird erst nach Ablauf einer Stunde
+  # angezeigt. Wenn nicht gewuenscht, bei 3600 eine Null eintragen
+    ExpiresByType text/html                             "access plus 3600 seconds"
+
+  # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
+
+  # Manifest files
+    ExpiresByType application/manifest+json             "access plus 1 week"
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+  # Media files
+    ExpiresByType audio/ogg                             "access plus 4 month"
+    ExpiresByType image/bmp                             "access plus 4 month"
+    ExpiresByType image/gif                             "access plus 4 month"
+    ExpiresByType image/jpeg                            "access plus 4 month"
+    ExpiresByType image/png                             "access plus 4 month"
+    ExpiresByType image/svg+xml                         "access plus 4 month"
+    ExpiresByType image/webp                            "access plus 4 month"
+    ExpiresByType video/mp4                             "access plus 4 month"
+    ExpiresByType video/ogg                             "access plus 4 month"
+    ExpiresByType video/webm                            "access plus 4 month"
+
+  # Web fonts
+
+    # Embedded OpenType (EOT)
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType font/eot                              "access plus 1 month"
+
+    # OpenType
+    ExpiresByType font/opentype                         "access plus 1 month"
+
+    # TrueType
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+
+    # Web Open Font Format (WOFF) 1.0
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff               "access plus 1 month"
+    ExpiresByType font/woff                             "access plus 1 month"
+
+    # Web Open Font Format (WOFF) 2.0
+    ExpiresByType application/font-woff2                "access plus 1 month"
+
+  # Other
+    ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
+</IfModule>
+
 <IfModule mod_deflate.c>
+# Insert filters / compress text, html, javascript, css, xml:
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
 AddOutputFilterByType DEFLATE text/css
-AddOutputFilterByType DEFLATE text/javascript
-AddOutputFilterByType DEFLATE application/json
+AddOutputFilterByType DEFLATE text/vtt
+AddOutputFilterByType DEFLATE text/x-component
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/js
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/x-httpd-php
+AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+AddOutputFilterByType DEFLATE application/atom+xml
+AddOutputFilterByType DEFLATE application/json
+AddOutputFilterByType DEFLATE application/ld+json
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE application/font-woff2
+AddOutputFilterByType DEFLATE application/x-font-woff
+AddOutputFilterByType DEFLATE application/x-web-app-manifest+json font/woff
+AddOutputFilterByType DEFLATE font/woff
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE image/x-icon
+
+# Exception: Images
+SetEnvIfNoCase REQUEST_URI \.(?:gif|jpg|jpeg|png|svg)$ no-gzip dont-vary
+
+# Drop problematic browsers
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
 </IfModule>

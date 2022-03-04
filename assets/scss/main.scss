@@ -1,10 +1,8 @@
-@import "_vendor/normalize";
-@import "_vendor/cookie";
-@import "_vendor/boilerplate";
+@import "~/node_modules/sanitize.css/sanitize.css";
+@import "~/node_modules/sanitize.css/forms.css";
 
 @import "common/variables";
 @import "common/typo";
-@import "common/fonts";
 @import "common/global";
 @import "common/grid";
 

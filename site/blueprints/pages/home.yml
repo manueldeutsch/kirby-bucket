@@ -1,13 +1,20 @@
 title: Home
 icon: 🏠
 
-options:
-  status: false
+status:
+  draft: false
+  unlisted:
+    label: Hidden Page
+    text: The page is not listed in the main menu
+  listed:
+    label: Menu Page
+    text: The page is listed in the main menu
 
 fields:
-  text:
-    label: Intro Text
-    type: textarea
+  headline:
+    label: 💬 Content
+    type: headline
+
   layout:
     label: Content
     type: layout
@@ -19,3 +26,5 @@ fields:
       - heading
       - text
       - button
+
+  seo: sections/seo

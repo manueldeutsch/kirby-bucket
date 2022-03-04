@@ -1,12 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -19,12 +10,18 @@ body {
 }
 
 .wrapper {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
-img {
-  display: block;
-  width: 100%;
+.header,
+.footer {
+  padding: 10px;
+  background-color: #f6f6f6;
+
+  a {
+    text-decoration: none;
+  }
 }

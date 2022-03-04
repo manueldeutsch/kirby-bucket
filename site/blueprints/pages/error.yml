@@ -1,9 +1,10 @@
 title: Error
+icon: 😵
 
 options:
   status: false
 
 fields:
   text:
-    type: textarea
-    size: huge
+    type: writer
+    width: 3/4

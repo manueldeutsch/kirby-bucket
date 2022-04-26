@@ -15,13 +15,3 @@ Seo-description:
 ----
 
 Seo-image: 
-
-----
-
-Text:
-
-# Kirby Bucket 🪣 
-
-Kirby Bucket a simple developer theme and boilerplate for the Kirby CMS. Build with Parcel, Sass and a bucket of other tings.
-
-(link: https://github.com/mantsch/kirby-bucket text: Github Repo)

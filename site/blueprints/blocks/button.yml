@@ -3,13 +3,17 @@ icon: bolt
 tabs:
   content:
     fields:
-      link:
-        type: text
       text:
+        label: Text
         type: text
+      link:
+        label: Link
+        type: text
+      external:
+        label: New Tab
+        type: toggle
+
   styles:
     fields:
       class:
-        type: text
-      id:
         type: text

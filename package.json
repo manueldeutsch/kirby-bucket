@@ -14,15 +14,15 @@
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
-    "@parcel/transformer-image": "^2.3.2",
-    "@parcel/transformer-sass": "^2.3.2",
-    "@prettier/plugin-php": "^0.18.2",
-    "autoprefixer": "^10.2.6",
-    "cssnano": "^5.1.0",
-    "parcel": "^2.3.2",
-    "postcss": "^8.4.7",
-    "prettier": "^2.4.0",
-    "sass": "^1.49.9"
+    "@parcel/transformer-image": "^2.5.0",
+    "@parcel/transformer-sass": "^2.5.0",
+    "@prettier/plugin-php": "^0.18.4",
+    "autoprefixer": "^10.4.5",
+    "cssnano": "^5.1.7",
+    "parcel": "^2.5.0",
+    "postcss": "^8.4.12",
+    "prettier": "^2.6.2",
+    "sass": "^1.51.0"
   },
   "dependencies": {
     "sanitize.css": "^13.0.0"

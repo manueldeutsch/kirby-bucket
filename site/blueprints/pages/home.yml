@@ -26,5 +26,15 @@ fields:
       - heading
       - text
       - button
+      - list
+      - quote
+    settings:
+      fields:
+        class:
+          type: text
+          width: 1/2
+        id:
+          type: text
+          width: 1/2
 
   seo: sections/seo

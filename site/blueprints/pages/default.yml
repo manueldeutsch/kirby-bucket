@@ -1,4 +1,4 @@
-title: Simple Page
+title: Text
 icon: 📝
 
 fields:
@@ -7,7 +7,12 @@ fields:
     type: headline
 
   text:
-    type: writer
+    type: blocks
     width: 3/4
+    fieldsets:
+      - heading
+      - text
+      - list
+      - markdown
 
   seo: sections/seo

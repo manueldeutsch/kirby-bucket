@@ -6,7 +6,7 @@
     <h1><?= $page->title() ?></h1>
   </header>
   <div class="text">
-    <?= $page->text()->kt() ?>
+    <?= $page->text()->toBlocks() ?>
   </div>
 </main>
 

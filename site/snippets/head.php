@@ -34,7 +34,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="<?= $kirby->url() ?>/assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="<?= $kirby->url() ?>/assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="<?= $kirby->url() ?>/assets/icons/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="<?= $kirby->url() ?>/assets/iconsfavicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="<?= $kirby->url() ?>/assets/icons/favicon.ico">
   <link rel="manifest" href="<?= $kirby->url() ?>/site.webmanifest">
 
   <?= css(["assets/dist/scss/main.css?v1.0", "@auto"]) ?>

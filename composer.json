@@ -1,7 +1,7 @@
 {
   "require": {
-    "php": ">=7.4.0",
-    "getkirby/cms": "^3.6"
+    "php": ">=8.0",
+    "getkirby/cms": "^3.8"
   },
   "scripts": {
     "start": [
@@ -10,6 +10,7 @@
     ]
   },
   "config": {
+    "optimize-autoloader": true,
     "allow-plugins": {
       "getkirby/composer-installer": true
     }

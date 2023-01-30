@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="canonical" href="<?= $page->url() ?>">
+  <meta name="theme-color" content="#ffffff">
 
   <?php if ($page->seo_title()->isNotEmpty()): ?>
   <title><?= $page->seo_title() ?></title>
@@ -41,4 +42,4 @@
   <?= css(["assets/dist/scss/main.css?v1.0", "@auto"]) ?>
 </head>
 
-<body class="<?= $page->template() ?>">
+<body class="<?= $page->template() ?> <?= strtolower($page->title()) ?>">

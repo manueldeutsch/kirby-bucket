@@ -1,0 +1,58 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: live
+  pull_request:
+    branches: live
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Install composer dependencies
+
+      - name: Install dependencies
+        run: composer install
+
+      # Install npm dependencies & build
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      # Cleanup
+
+      - name: Delete unnecessary files
+        run: |
+          rm -r node_modules
+          rm -r .git
+          rm -r .github
+          rm -r .parcel-cache
+          rm -r .gitignore
+          rm -r .editorconfig
+          rm -r .npmrc
+          rm -r .postcssrc
+          rm -r package-lock.json
+          rm -r package.json
+          rm -r composer.json
+          rm -r composer.lock
+          rm -r readme.md
+
+      # SFTP Deploy
+
+      - name: 📂 Sync files
+        uses: Creepios/sftp-action@v1.0.4
+        with:
+          host: ${{ secrets.ftp_server_live }}
+          port: 22
+          username: ${{ secrets.ftp_user_live }}
+          password: ${{ secrets.ftp_password_live }}
+          remotePath: ${{ secrets.ftp_path_live }}
+          localPath: "./"
+          agent: null

@@ -1,3 +1,5 @@
-/* COMPONENTS */
+import initComponent from "./components/component.js";
 
-import "./components/logger.js";
+window.addEventListener('DOMContentLoaded', () => {
+  initComponent();
+});

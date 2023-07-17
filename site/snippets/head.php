@@ -12,16 +12,16 @@
   <title><?= $page->seo_title() ?></title>
   <meta property="og:title" content="<?= $page->seo_title() ?>" />
   <?php else: ?>
-  <title><?= $site->seo_title() ?> | <?= $page->title() ?></title>
-  <meta property="og:title" content="<?= $site->seo_title() ?> | <?= $page->title() ?>" />
+  <title><?= $page->title() ?> | <?= $site->seo_title() ?></title>
+  <meta property="og:title" content="<?= $page->title() ?> | <?= $site->seo_title() ?>" />
   <?php endif; ?>
 
   <?php if ($page->seo_description()->isNotEmpty()): ?>
   <meta name="description" content="<?= $page->seo_description()->html() ?>">
   <meta property="og:description" content="<?= $page->seo_description()->html() ?>" />
   <?php else: ?>
-  <meta name="description" content="<?= $site->seo_description()->html() ?>">
-  <meta property="og:description" content="<?= $site->seo_description()->html() ?>" />
+  <meta name="description" content="<?= $site->seo_title() ?> | <?= $site->seo_description()->html() ?>">
+  <meta property="og:description" content="<?= $site->seo_title() ?> | <?= $site->seo_description()->html() ?>" />
   <?php endif; ?>
 
   <meta property="og:type" content="website" />

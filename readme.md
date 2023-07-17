@@ -19,7 +19,7 @@ It just uses **Parcel** with the following tasks:
 
 ## 🧼 Style Helper
 
--   Sanitize.css for consistent default styling
+-   Modern normalize for default styling
 -   Simple atomic SCSS folder & files structure
 
 ## 🛁 Content
@@ -35,7 +35,7 @@ Some basic content and blueprints for Kirby are prepared:
 ## 🚽 Deploy
 
 For a simple and easy deploy, we use github actions.
-The action will run composer, npm build and copy the files via FTP to your Server.
+The action will run composer, npm build and copy the files via S/FTP to your Server.
 Don't forget to add your secrets within github settings!
 
 ## 🧴 Links

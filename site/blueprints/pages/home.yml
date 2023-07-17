@@ -33,7 +33,7 @@ fields:
         class:
           type: text
           width: 1/2
-        id:
+        customid:
           type: text
           width: 1/2
 

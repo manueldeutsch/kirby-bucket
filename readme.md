@@ -1,21 +1,15 @@
 # 🪣 Kirby Bucket
 
-Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS, to build websites fast and easy.
-
-## 🚰 Install
-
-Run `npm install` to install the frontend dependencies and `composer install` to install **Kirby**.
-
-Start PHP's built-in server with `composer start` and run `npm run dev` for CSS and JS compiling.
-
-Open `localhost:8000` to view the page or `localhost:8000/panel` to open the panel.
+Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS.
 
 ## 🚿 Tools
 
-It just uses **Parcel** with the following tasks:
+On the Frontend we use **Parcel** with the following tasks:
 
 -   **CSS:** The **SCSS** will be automatically compiled to CSS thorugh **PostCSS**, with **Autoprefixer** and **Minify**.
 -   **Javascript:** It will use **Parcel** for better **ES6** support and **Minification**.
+
+Additional VScode remmendations are included for code formatting and completion.
 
 ## 🧼 Style Helper
 
@@ -31,6 +25,14 @@ Some basic content and blueprints for Kirby are prepared:
 -   Header & Footer snippets
 -   Example block button
 -   Specific per page SEO title, description & image with a global fallback
+
+## 🚰 Install
+
+Run `npm install` to install the frontend dependencies and `composer install` to install **Kirby**.
+
+Start PHP's built-in server with `composer start` and run `npm run dev` for CSS and JS compiling.
+
+Open `localhost:8000` to view the page or `localhost:8000/panel` to open the panel.
 
 ## 🚽 Deploy
 

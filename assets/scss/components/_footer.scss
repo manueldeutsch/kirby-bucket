@@ -1,8 +1,12 @@
 .footer {
   margin-top: auto;
   text-align: right;
+  border-top: 1px solid var(--typo);
+  padding: 10px 0;
 
-  a:hover {
-    text-decoration: underline;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

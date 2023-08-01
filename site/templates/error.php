@@ -2,12 +2,9 @@
 <?php snippet("header"); ?>
 
 <main class="wrapper">
-  <header class="intro">
+  <section class="center">
     <h1><?= $page->title() ?></h1>
-  </header>
-  <div class="text">
-    <?= $page->text()->kt() ?>
-  </div>
+  </section>
 </main>
 
 <?php snippet("footer"); ?>

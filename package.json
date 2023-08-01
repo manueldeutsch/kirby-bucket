@@ -1,7 +1,7 @@
 {
   "name": "kirby-bucket",
-  "version": "2.1.4",
-  "description": "Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS, to build websites fast and easy.",
+  "version": "2.2.0",
+  "description": "Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS.",
   "author": "Manuel Deutsch",
   "license": "ISC",
   "repository": {
@@ -16,12 +16,10 @@
   "devDependencies": {
     "@parcel/transformer-image": "^2.8.0",
     "@parcel/transformer-sass": "^2.8.0",
-    "@prettier/plugin-php": "^0.19.2",
     "autoprefixer": "^10.4.13",
     "cssnano": "^6.0.0",
     "parcel": "^2.8.0",
     "postcss": "^8.4.18",
-    "prettier": "^2.7.1",
     "sass": "^1.56.1"
   },
   "dependencies": {

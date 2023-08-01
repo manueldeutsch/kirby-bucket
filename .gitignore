@@ -10,6 +10,17 @@ Icon
 /media/*
 !/media/index.html
 
+# Lock files
+# ---------------
+
+.lock
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+*.sublime-workspace
+/.idea
+
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
 # -------------SECURITY-------------
@@ -34,7 +45,9 @@ Icon
 
 # License
 # ---------------
+
 /site/config/.license
+
 
 # Modules and vendor
 # ---------------

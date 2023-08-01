@@ -6,7 +6,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 img,
@@ -18,17 +18,11 @@ svg {
 
 .wrapper {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.header,
-.footer {
-  padding: 10px 20px;
-  background-color: var(--background);
-
-  a {
-    text-decoration: none;
-  }
+[aria-current="page"] {
+  text-decoration: underline;
 }

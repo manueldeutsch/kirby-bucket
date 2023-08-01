@@ -1,11 +1,8 @@
 <?php snippet("head"); ?>
 <?php snippet("header"); ?>
 
-<main class="wrapper">
-  <header class="intro">
-    <h1><?= $page->title() ?></h1>
-  </header>
-  <div class="text">
+<main>
+  <div class="wrapper">
     <?= $page->text()->toBlocks() ?>
   </div>
 </main>

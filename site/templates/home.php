@@ -1,8 +1,10 @@
 <?php snippet("head"); ?>
 <?php snippet("header"); ?>
 
-<main class="wrapper">
-  <?php snippet("layouts", ["field" => $page->layout()]); ?>
+<main>
+  <div class="wrapper">
+    <?php snippet("layouts", ["field" => $page->layout()]); ?>
+  </div>
 </main>
 
 <?php snippet("footer"); ?>

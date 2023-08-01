@@ -1,0 +1,13 @@
+{
+  "name": "kirby-bucket/kirby-button",
+  "description": "Simple Button Block for Kirby",
+  "license": "MIT",
+  "type": "kirby-plugin",
+  "version": "1.0.1",
+  "authors": [
+    {
+      "name": "Manuel Deutsch",
+      "email": "hi@manuel-deutsch.de"
+    }
+  ]
+}

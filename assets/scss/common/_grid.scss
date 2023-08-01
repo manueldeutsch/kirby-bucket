@@ -1,52 +1,25 @@
-// Kirby defaults for layout field
-
 .grid {
   --columns: 12;
-  --gutter: 3rem;
+  --gutter: 1.5rem;
   display: grid;
   grid-gap: var(--gutter);
   grid-template-columns: 1fr;
 
-  margin-top: calc(var(--gutter));
-  margin-bottom: calc(var(--gutter) * 2);
+  margin-top: calc(var(--gutter) * 0.5);
+  margin-bottom: calc(var(--gutter) * 0.5);
 
-  @media screen and (min-width: 60rem) {
+  @media (min-width: 1024px) {
+    --gutter: 3rem;
     margin-bottom: 0;
+    grid-template-columns: repeat(12, 1fr);
   }
 }
 
 .grid > .column {
   margin-bottom: 0;
 
-  @media screen and (min-width: 60rem) {
-    margin-bottom: calc(var(--gutter) * 2);
-  }
-}
-
-// on mobile image first
-// second grid second row on place 1
-
-@media screen and (max-width: 60rem) {
-  .grid + .grid .column:nth-of-type(2) {
-    grid-row: 1;
-  }
-}
-
-.autogrid {
-  --gutter: 3rem;
-  --min: 10rem;
-  display: grid;
-  grid-gap: var(--gutter);
-  grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
-  grid-auto-flow: dense;
-}
-
-@media screen and (min-width: 60rem) {
-  .grid {
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .grid > .column {
+  @media (min-width: 1024px) {
+    margin-bottom: calc(var(--gutter) * 0.5);
     grid-column: span var(--columns);
   }
 }

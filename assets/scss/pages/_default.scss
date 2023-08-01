@@ -1,5 +1,9 @@
 .default {
-  .wrapper {
-    max-width: 750px;
+  main {
+    padding: 20px 0;
+
+    .wrapper {
+      max-width: 750px;
+    }
   }
 }

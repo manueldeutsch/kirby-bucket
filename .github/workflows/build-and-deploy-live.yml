@@ -36,7 +36,7 @@ jobs:
           rm -r .parcel-cache
           rm -r .gitignore
           rm -r .editorconfig
-          rm -r .npmrc
+          rm -r .vscode
           rm -r .postcssrc
           rm -r package-lock.json
           rm -r package.json

@@ -1,7 +1,7 @@
 {
   "require": {
     "php": ">=8.0",
-    "getkirby/cms": "^3.8"
+    "getkirby/cms": "^4.1.2"
   },
   "scripts": {
     "start": [

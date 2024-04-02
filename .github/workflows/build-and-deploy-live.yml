@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Install composer dependencies
 
@@ -47,7 +47,7 @@ jobs:
       # SFTP Deploy
 
       - name: 📂 Sync files
-        uses: Creepios/sftp-action@v1.0.4
+        uses: Creepios/sftp-action@v1.0.5
         with:
           host: ${{ secrets.ftp_server_live }}
           port: 22

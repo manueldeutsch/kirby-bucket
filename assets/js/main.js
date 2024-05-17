@@ -1,5 +1,5 @@
 import initComponent from "./components/component.js";
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   initComponent();
 });

@@ -1,0 +1,4 @@
+.k-items[data-layout="cards"] .k-item-image span[data-type="emoji"],
+.k-items[data-layout="cardlets"] .k-item-image span[data-type="emoji"] {
+  font-size: 42px;
+}

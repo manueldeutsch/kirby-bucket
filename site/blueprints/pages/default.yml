@@ -7,12 +7,7 @@ fields:
     type: headline
 
   text:
-    type: blocks
+    type: writer
     width: 3/4
-    fieldsets:
-      - heading
-      - text
-      - list
-      - markdown
 
   seo: sections/seo

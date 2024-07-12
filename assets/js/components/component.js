@@ -1,3 +1,3 @@
 export default function initComponent() {
-  console.log('Component initialized');
+  console.log('Hello');
 }

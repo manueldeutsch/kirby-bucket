@@ -14,9 +14,11 @@ columns:
         template:
           - home
           - default
-        image: icon
+        image:
+          type: icon
+          back: "#d0d0d0"
         layout: cards
-        size: tiny
+        size: small
 
   - width: 1
     sections:

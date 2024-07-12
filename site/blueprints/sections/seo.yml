@@ -1,5 +1,8 @@
 type: group
 fields:
+  line:
+    type: line
+
   seo:
     label: ⚡️ SEO
     type: headline
@@ -8,7 +11,6 @@ fields:
     label: Title
     type: textarea
     buttons: false
-    width: 1
     counter: true
     maxlength: 60
     width: 1/2
@@ -27,4 +29,3 @@ fields:
     options: images
     multiple: false
     width: 1/2
-

@@ -9,8 +9,8 @@
     "url": "git+https://github.com/manueldeutsch/kirby-bucket.git"
   },
   "scripts": {
-    "dev": "parcel watch ./assets/scss/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url .",
-    "build": "parcel build --no-content-hash --no-source-maps ./assets/scss/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url ."
+    "dev": "parcel watch ./assets/css/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url .",
+    "build": "parcel build --no-content-hash --no-source-maps ./assets/css/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url ."
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {

@@ -4,4 +4,9 @@
   text-decoration: none;
   line-height: 1;
   border: 1px solid var(--typo);
+
+  &:hover {
+    background-color: var(--typo);
+    color: var(--background);
+  }
 }

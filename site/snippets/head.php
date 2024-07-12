@@ -39,7 +39,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="<?= $kirby->url() ?>/assets/icons/favicon.ico">
   <link rel="manifest" href="<?= $kirby->url() ?>/site.webmanifest">
 
-  <?= css(["assets/dist/scss/main.css?v1.0", "@auto"]) ?>
+  <?= css(["assets/dist/css/main.css?v1.0", "@auto"]) ?>
 </head>
 
 <body class="<?= $page->template() ?>">

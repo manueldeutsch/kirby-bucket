@@ -1,0 +1,18 @@
+title: User
+
+columns:
+  left:
+    width: 1/2
+    fields:
+      website:
+        label: Website
+        type: url
+
+  right:
+    width: 1/2
+    fields:
+      instagram:
+        label: Instagram
+        type: text
+        icon: instagram
+        placeholder: username

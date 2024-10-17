@@ -2,8 +2,10 @@
   main {
     padding: 20px 0;
 
-    .wrapper {
+    .content-wrapper {
       max-width: 900px;
+      margin-left: 0;
+      margin-right: auto;
     }
   }
 }

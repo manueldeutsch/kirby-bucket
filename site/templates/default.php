@@ -3,7 +3,9 @@
 
 <main>
   <div class="wrapper">
-    <?= $page->text()->toBlocks() ?>
+    <div class="content-wrapper">
+      <?= $page->text() ?>
+    </div>
   </div>
 </main>
 

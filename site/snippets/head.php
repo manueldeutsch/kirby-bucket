@@ -12,24 +12,25 @@
     <title><?= $page->seo_title() ?></title>
     <meta property="og:title" content="<?= $page->seo_title() ?>" />
   <?php else : ?>
-    <title><?= $page->title() ?> | <?= $site->seo_title() ?></title>
-    <meta property="og:title" content="<?= $page->title() ?> | <?= $site->seo_title() ?>" />
+    <title><?= !$page->isHomePage() ? $page->title() . ' - ' : '' ?><?= $site->seo_title() ?></title>
+    <meta property="og:title" content="<?= $page->title() ?> - <?= $site->seo_title() ?>" />
   <?php endif; ?>
 
   <?php if ($page->seo_description()->isNotEmpty()) : ?>
     <meta name="description" content="<?= $page->seo_description()->html() ?>">
     <meta property="og:description" content="<?= $page->seo_description()->html() ?>" />
   <?php else : ?>
-    <meta name="description" content="<?= $site->seo_title() ?> | <?= $site->seo_description()->html() ?>">
-    <meta property="og:description" content="<?= $site->seo_title() ?> | <?= $site->seo_description()->html() ?>" />
+    <meta name="description" content="<?= $site->seo_description()->html() ?>">
+    <meta property="og:description" content="<?= $site->seo_description()->html() ?>" />
   <?php endif; ?>
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<?php echo html($page->url()); ?>" />
 
   <?php if ($image = $page->seo_image()->toFile()) : ?>
-    <meta property="og:image" content="<?= $image->url() ?>" />
+    <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
   <?php elseif ($image = $site->seo_image()->toFile()) : ?>
+
     <meta property="og:image" content="<?= $image->url() ?>" />
   <?php endif; ?>
 

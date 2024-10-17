@@ -1,7 +1,7 @@
 <header class="header">
   <div class="wrapper">
     <a class="logo" href="<?= $site->url() ?>">
-      <img src="<?= $kirby->url() ?>/assets/images/logo.svg" alt="<?= $site->title() ?>">
+      <img src="<?= $kirby->url() ?>/assets/images/logo.svg" alt="<?= $site->title() ?>" width="35" height="35">
     </a>
 
     <nav>

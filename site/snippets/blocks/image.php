@@ -28,7 +28,7 @@ if ($block->location() == 'web') {
 
 ?>
 <?php if ($src): ?>
-  <figure<?= Html::attr(['class' => $class], null, ' ') ?>>
+  <figure <?= Html::attr(['class' => $class], null, ' ') ?>>
     <?php if ($link->isNotEmpty()): ?>
       <a href="<?= Str::esc($link->toUrl()) ?>">
         <?php if ($icon): ?>
@@ -47,5 +47,5 @@ if ($block->location() == 'web') {
     <?php if ($caption): ?>
       <figcaption><?= $caption->inline() ?></figcaption>
     <?php endif ?>
-    </figure>
-  <?php endif ?>
+  </figure>
+<?php endif ?>

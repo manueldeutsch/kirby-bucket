@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="wrapper">
-    <span>&copy; <?= date("Y") ?> - Kirby Bucket</span>
+    <span>&copy; <?= date("Y") ?> - <?= $site->title() ?></span>
 
     <nav>
       <ul>

@@ -30,7 +30,6 @@
   <?php if ($image = $page->seo_image()->toFile()) : ?>
     <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
   <?php elseif ($image = $site->seo_image()->toFile()) : ?>
-
     <meta property="og:image" content="<?= $image->url() ?>" />
   <?php endif; ?>
 
@@ -40,7 +39,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="<?= $kirby->url() ?>/assets/icons/favicon.ico">
   <link rel="manifest" href="<?= $kirby->url() ?>/site.webmanifest">
 
-  <?= css(["assets/dist/css/main.css?v1.0", "@auto"]) ?>
+  <link rel="stylesheet" href="<?= $kirby->url() ?>/assets/dist/css/main.css?v=<?= filemtime($kirby->root('assets') . '/dist/css/main.css') ?>">
 </head>
 
 <body class="<?= $page->template() ?>">

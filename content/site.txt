@@ -2,7 +2,7 @@ Title: Kirby Bucket
 
 ----
 
-Seo-title: Kirby Bucket - A simple developer theme and boilerplate.
+Seo-title: Kirby Bucket
 
 ----
 

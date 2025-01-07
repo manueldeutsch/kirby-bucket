@@ -6,7 +6,7 @@ Layout: [{"attrs":{"class":"","customid":""},"columns":[{"blocks":[{"content":{"
 
 ----
 
-Seo-title: 
+Seo-title: Kirby Bucket - A simple developer theme and boilerplate.
 
 ----
 

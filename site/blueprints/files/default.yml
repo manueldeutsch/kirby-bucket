@@ -9,3 +9,8 @@ columns:
           alt:
             label: Description
             type: text
+            width: 1/2
+          class:
+            type: text
+            label: Class
+            width: 1/2

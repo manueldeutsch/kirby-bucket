@@ -17,6 +17,7 @@ columns:
         image:
           type: icon
           back: "#d0d0d0"
+          query: false
         layout: cards
         size: small
 

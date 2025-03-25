@@ -22,3 +22,7 @@ nav {
     }
   }
 }
+
+[aria-current="page"] {
+  text-decoration: underline;
+}

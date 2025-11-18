@@ -17,7 +17,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: "8.3"
 
       # Install composer dependencies
       - name: Install dependencies
@@ -40,6 +40,7 @@ jobs:
           rm -r .gitignore
           rm -r .editorconfig
           rm -r .vscode
+          rm -r .claude
           rm -r package-lock.json
           rm -r package.json
           rm -r composer.json

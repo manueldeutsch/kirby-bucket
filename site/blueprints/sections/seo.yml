@@ -1,12 +1,5 @@
 type: group
 fields:
-  line:
-    type: line
-
-  seo:
-    label: ⚡️ SEO
-    type: headline
-
   seo_title:
     label: Title
     type: textarea

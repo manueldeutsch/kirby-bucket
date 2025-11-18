@@ -1,17 +1,17 @@
 nav {
-  ul {
+  & ul {
     list-style: none;
     margin: 0;
     padding: 0;
 
-    li {
+    & li {
       display: inline-block;
 
       &:not(:last-child) {
         margin-right: 10px;
       }
 
-      a {
+      & a {
         text-decoration: none;
         font-weight: 600;
 

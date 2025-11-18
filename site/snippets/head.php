@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="<?= $kirby->language() ? $kirby->language()->code() : 'de' ?>">
 
 <head>
   <meta charset="utf-8">
@@ -26,11 +26,12 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<?php echo html($page->url()); ?>" />
+  <meta property="og:locale" content="<?= $kirby->language() ? $kirby->language()->locale(LC_ALL) : 'de_DE' ?>" />
 
   <?php if ($image = $page->seo_image()->toFile()) : ?>
     <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
   <?php elseif ($image = $site->seo_image()->toFile()) : ?>
-    <meta property="og:image" content="<?= $image->url() ?>" />
+    <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
   <?php endif; ?>
 
   <link rel="apple-touch-icon" sizes="180x180" href="<?= $kirby->url() ?>/assets/icons/apple-touch-icon.png">

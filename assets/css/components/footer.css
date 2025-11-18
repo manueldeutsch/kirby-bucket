@@ -3,7 +3,7 @@
   text-align: right;
   padding: 10px 0;
 
-  .wrapper {
+  & .wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;

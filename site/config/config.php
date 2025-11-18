@@ -1,7 +1,13 @@
 <?php
 
+// Enable debug mode for localhost, staging, and werkstatt environments
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isDebug = str_contains($host, 'localhost') ||
+           str_contains($host, 'staging') ||
+           str_contains($host, 'werkstatt');
+
 return [
-    "debug" => true,
+    "debug" => $isDebug,
     "panel" => [
         "install" => true,
         'css' => 'assets/css/panel.css'

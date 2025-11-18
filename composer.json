@@ -1,6 +1,6 @@
 {
   "require": {
-    "php": ">=8.2",
+    "php": ">=8.3",
     "getkirby/cms": "^5.0"
   },
   "scripts": {
@@ -14,5 +14,7 @@
     "allow-plugins": {
       "getkirby/composer-installer": true
     }
-  }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "stable"
 }

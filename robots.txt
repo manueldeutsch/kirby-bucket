@@ -1,4 +1,9 @@
 # robotstxt.org/
 
-User-agent: * 
-Disallow:
+User-agent: *
+Disallow: /panel/
+Disallow: /kirby/
+Disallow: /site/
+Disallow: /content/
+
+Sitemap: /sitemap.xml

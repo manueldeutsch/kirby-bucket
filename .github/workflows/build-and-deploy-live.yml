@@ -13,13 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Install composer dependencies
+      # Setup PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
+      # Install composer dependencies
       - name: Install dependencies
-        run: composer install
+        run: composer install --no-dev --optimize-autoloader
 
       # Install npm dependencies & build
-
       - name: Install
         run: npm install
 
@@ -27,7 +31,6 @@ jobs:
         run: npm run build
 
       # Cleanup
-
       - name: Delete unnecessary files
         run: |
           rm -r node_modules
@@ -37,7 +40,6 @@ jobs:
           rm -r .gitignore
           rm -r .editorconfig
           rm -r .vscode
-          rm -r .postcssrc
           rm -r package-lock.json
           rm -r package.json
           rm -r composer.json
@@ -45,7 +47,6 @@ jobs:
           rm -r readme.md
 
       # SFTP Deploy
-
       - name: 📂 Sync files
         uses: Creepios/sftp-action@v1.0.5
         with:

@@ -1,13 +1,17 @@
 title: Text
 icon: 📝
 
-fields:
-  headline:
-    label: 💬 Content
-    type: headline
+tabs:
+  content:
+    label: Content
+    icon: 📝
+    fields:
+      text:
+        type: writer
+        width: 3/4
 
-  text:
-    type: writer
-    width: 3/4
-
-  seo: sections/seo
+  seo:
+    label: SEO
+    icon: 🔍
+    fields:
+      seo: sections/seo

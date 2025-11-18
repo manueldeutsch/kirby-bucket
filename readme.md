@@ -1,30 +1,28 @@
 # 🪣 Kirby Bucket
 
-Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS.
+Kirby Bucket is a minimalist developer boilerplate for Kirby CMS.
 
-## 🚿 Tools
+## 🧼 Features
 
-On the Frontend we use **Parcel** with the following tasks:
+**Frontend**
 
--   **CSS:** The **SCSS** will be automatically compiled to CSS thorugh **PostCSS**, with **Autoprefixer** and **Minify**.
--   **Javascript:** It will use **Parcel** for better **ES6** support and **Minification**.
+-   Modular CSS & minimal JavaScript
+-   Parcel & PostCSS optimizations
 
-Additional VScode remmendations are included for code formatting and completion.
+**Development**
 
-## 🧼 Style Helper
+-   EditorConfig & Prettier settings
+-   VSCode & Claude recommendations
 
--   Modern normalize for default styling
--   Simple atomic SCSS folder & files structure
+**Content**
 
-## 🛁 Content
+-   Modular snippets & templates
+-   Optimized SEO fields, robots.txt & sitemap
 
-Some basic content and blueprints for Kirby are prepared:
+**Security & Performance**
 
--   Home: flexible layout page
--   Default: simple writer page
--   Header & Footer snippets
--   Example block button
--   Specific per page SEO title, description & image with a global fallback
+-   Security headers & Protected directories
+-   Compression & caching configured
 
 ## 🚰 Install
 
@@ -34,11 +32,21 @@ Start PHP's built-in server with `composer start` and run `npm run dev` for CSS 
 
 Open `localhost:8000` to view the page or `localhost:8000/panel` to open the panel.
 
+## 🧹 Scripts
+
+-   `npm run dev` - Watch mode for development
+-   `npm run build` - Production build
+-   `npm run clean` - Remove build cache and dist files
+-   `composer start` - Start local PHP server
+
 ## 🚽 Deploy
 
-For a simple and easy deploy, we use github actions.
-The action will run composer, npm build and copy the files via S/FTP to your Server.
-Don't forget to add your secrets within github settings!
+GitHub Actions workflows included for automated deployment:
+
+-   Runs composer & npm build
+-   Deploys via FTP/SFTP to your server
+
+Don't forget to add your secrets in GitHub settings!
 
 ## 🧴 Links
 

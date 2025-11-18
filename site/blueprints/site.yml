@@ -1,29 +1,26 @@
 title: Site
 
-columns:
-  - width: 1
-    sections:
-      fields:
-        type: fields
-        fields:
-          headline:
-            label: 📰 Pages
-            type: headline
-      pages:
-        type: pages
-        template:
-          - home
-          - default
-        image:
-          type: icon
-          back: "#d0d0d0"
-          query: false
-        layout: cards
-        size: small
+tabs:
+  pages:
+    label: Pages
+    icon: 📰
+    columns:
+      - width: 1
+        sections:
+          pages:
+            type: pages
+            template:
+              - home
+              - default
+            image:
+              type: icon
+              back: "#d0d0d0"
+              query: false
+            layout: cards
+            size: small
 
-  - width: 1
-    sections:
-      seo:
-        type: fields
-        fields:
-          seo: sections/seo
+  seo:
+    label: SEO
+    icon: 🔍
+    fields:
+      seo: sections/seo

@@ -10,31 +10,35 @@ status:
     label: Menu Page
     text: The page is listed in the main menu
 
-fields:
-  headline:
-    label: 💬 Content
-    type: headline
-
-  layout:
+tabs:
+  content:
     label: Content
-    type: layout
-    layouts:
-      - "1/1"
-      - "1/2, 1/2"
-    fieldsets:
-      - image
-      - heading
-      - text
-      - button
-      - list
-      - quote
-    settings:
-      fields:
-        class:
-          type: text
-          width: 1/2
-        customid:
-          type: text
-          width: 1/2
+    icon: 📝
+    fields:
+      layout:
+        label: Content
+        type: layout
+        layouts:
+          - "1/1"
+          - "1/2, 1/2"
+        fieldsets:
+          - image
+          - heading
+          - text
+          - button
+          - list
+          - quote
+        settings:
+          fields:
+            class:
+              type: text
+              width: 1/2
+            customid:
+              type: text
+              width: 1/2
 
-  seo: sections/seo
+  seo:
+    label: SEO
+    icon: 🔍
+    fields:
+      seo: sections/seo

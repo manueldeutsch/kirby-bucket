@@ -1,6 +1,6 @@
 {
   "name": "kirby-bucket",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "description": "Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS.",
   "author": "Manuel Deutsch",
   "license": "ISC",
@@ -9,23 +9,33 @@
     "url": "git+https://github.com/manueldeutsch/kirby-bucket.git"
   },
   "scripts": {
-    "dev": "parcel watch ./assets/css/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url .",
-    "build": "parcel build --no-content-hash --no-source-maps ./assets/css/main.scss ./assets/js/main.js --dist-dir ./assets/dist --public-url ."
+    "dev": "parcel watch ./assets/css/main.css ./assets/js/main.js --dist-dir ./assets/dist --public-url .",
+    "build": "parcel build --no-content-hash --no-source-maps ./assets/css/main.css ./assets/js/main.js --dist-dir ./assets/dist --public-url .",
+    "clean": "rm -rf .parcel-cache assets/dist"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "@parcel/transformer-image": "^2.13.3",
-    "@parcel/transformer-sass": "^2.13.3",
-    "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
-    "parcel": "^2.8.0",
+    "parcel": "^2.13.3",
     "postcss": "^8.4.49",
-    "sass": "^1.83.1"
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^13.0.1"
   },
   "dependencies": {
     "modern-normalize": "^3.0.1"
   },
   "prettier": {
     "printWidth": 120
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "postcss-import": {},
+      "postcss-nesting": {},
+      "cssnano": {
+        "preset": "default"
+      }
+    }
   }
 }

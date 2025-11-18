@@ -6,7 +6,7 @@ Seo-title: Kirby Bucket
 
 ----
 
-Seo-description: Kirby Bucket is a simple developer theme and boilerplate for the Kirby CMS. Build with Parcel, Sass and a bucket of other things.
+Seo-description: Kirby Bucket is a minimalist developer boilerplate for Kirby CMS. Built with native CSS, Parcel, and modern web standards.
 
 ----
 

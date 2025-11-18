@@ -13,13 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Install composer dependencies
+      # Setup PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
+      # Install composer dependencies
       - name: Install dependencies
-        run: composer install
+        run: composer install --no-dev --optimize-autoloader
 
       # Install npm dependencies & build
-
       - name: Install
         run: npm install
 
@@ -27,9 +31,8 @@ jobs:
         run: npm run build
 
       # FTP Deploy
-
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_user }}

@@ -89,7 +89,7 @@ Header set X-Content-Type-Options "nosniff"
 
 # Additional configuration for HTTP security
 Header set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set X-Xss-Protection "1; mode=block"
 Header set Referrer-Policy "no-referrer"
@@ -118,11 +118,6 @@ AddOutputFilterByType DEFLATE image/x-icon
 
 # Exception: Images
 SetEnvIfNoCase REQUEST_URI \.(?:gif|jpg|jpeg|png|svg)$ no-gzip dont-vary
-
-# Drop problematic browsers
-BrowserMatch ^Mozilla/4 gzip-only-text/html
-BrowserMatch ^Mozilla/4\.0[678] no-gzip
-BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
 
 # Make sure proxies don't deliver the wrong content
 Header append Vary User-Agent env=!dont-vary

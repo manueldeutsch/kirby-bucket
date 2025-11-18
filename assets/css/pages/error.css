@@ -1,11 +1,11 @@
 .error {
   justify-content: space-between;
 
-  h1 {
+  & h1 {
     font-size: clamp(3rem, 10vw, 20rem);
   }
 
-  .footer {
+  & .footer {
     margin-top: 0;
   }
 }

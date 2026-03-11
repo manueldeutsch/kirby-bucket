@@ -1,0 +1,13 @@
+{
+  "name": "kirby-bucket/overline-block",
+  "description": "Simple Overline Block for Kirby",
+  "license": "MIT",
+  "type": "kirby-plugin",
+  "version": "1.1.1",
+  "authors": [
+    {
+      "name": "Manuel Deutsch",
+      "email": "hi@manuel-deutsch.de"
+    }
+  ]
+}

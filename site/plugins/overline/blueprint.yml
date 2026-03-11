@@ -1,0 +1,6 @@
+name: Overline
+icon: text-top
+fields:
+  text:
+    label: Text
+    type: text

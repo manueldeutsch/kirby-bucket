@@ -1,0 +1,9 @@
+.k-block-type-overline {
+  padding: var(--spacing-3);
+}
+
+.k-block-type-overline input {
+  text-transform: uppercase;
+  outline: none;
+  font-weight: bold;
+}

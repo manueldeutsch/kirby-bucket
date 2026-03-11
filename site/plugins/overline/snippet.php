@@ -1,0 +1,1 @@
+<span class="overline"><?= $block->text() ?></span>

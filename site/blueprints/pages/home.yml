@@ -25,6 +25,7 @@ tabs:
           - image
           - heading
           - text
+          - overline
           - button
           - list
           - quote

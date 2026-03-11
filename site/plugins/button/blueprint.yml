@@ -8,7 +8,7 @@ tabs:
         type: text
       link:
         label: Link
-        type: text
+        type: link
       external:
         label: New Tab
         type: toggle

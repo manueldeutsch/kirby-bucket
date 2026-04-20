@@ -16,26 +16,15 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "@parcel/transformer-image": "^2.13.3",
-    "cssnano": "^7.0.6",
-    "parcel": "^2.13.3",
-    "postcss": "^8.4.49",
-    "postcss-import": "^16.1.0",
-    "postcss-nesting": "^13.0.2"
+    "parcel": "^2.13.3"
   },
-  "dependencies": {
-    "modern-normalize": "^3.0.1"
-  },
+  "dependencies": {},
   "prettier": {
     "printWidth": 120
   },
-  "postcss": {
-    "modules": false,
-    "plugins": {
-      "postcss-import": {},
-      "postcss-nesting": {},
-      "cssnano": {
-        "preset": "default"
-      }
+  "@parcel/transformer-css": {
+    "drafts": {
+      "nesting": true
     }
   }
 }

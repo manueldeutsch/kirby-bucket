@@ -5,5 +5,3 @@ Disallow: /panel/
 Disallow: /kirby/
 Disallow: /site/
 Disallow: /content/
-
-Sitemap: /sitemap.xml

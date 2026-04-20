@@ -1,5 +1,4 @@
-@import "modern-normalize";
-
+@import "common/defaults.css";
 @import "common/variables.css";
 @import "common/fonts.css";
 @import "common/typo.css";

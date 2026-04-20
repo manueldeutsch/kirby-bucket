@@ -3,7 +3,6 @@
     "bmewburn.vscode-intelephense-client",
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
-    "dbaeumer.vscode-eslint",
     "medienbaecker.kirby-snippets"
   ]
 }

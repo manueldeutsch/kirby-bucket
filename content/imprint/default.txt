@@ -6,14 +6,6 @@ Text: <h1>Imprint</h1><p>This is an example page for legal information and impri
 
 ----
 
-Seo-title: Imprint
-
-----
-
-Seo-description: Legal information and imprint. 
-
-----
-
 Seo-image: 
 
 ----

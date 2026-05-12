@@ -1,33 +1,33 @@
-# Website Projekt
+# Website Project
 
-## Tech-Stack
+## Tech Stack
 
 -   **Backend**: PHP 8.3+, Kirby CMS 5.0
--   **Frontend**: Natives CSS mit Nesting, minimales JavaScript
+-   **Frontend**: Native CSS with Nesting, minimal JavaScript
 -   **Build**: Parcel, PostCSS (import, nesting, cssnano)
 -   **Deployment**: GitHub Actions → FTP/SFTP
 
-## Lösungs-Präferenzen
+## Solution Preferences
 
-### Einfachheit & Minimalismus
+### Simplicity & Minimalism
 
--   CSS-Lösungen bevorzugen (Flexbox, Grid, Nesting, Custom Properties)
--   JavaScript nur wenn wirklich nötig
--   Keine Over-Engineering
--   Native Browser-Features nutzen
+-   Prefer CSS solutions (Flexbox, Grid, Nesting, Custom Properties)
+-   JavaScript only when really necessary
+-   No over-engineering
+-   Use native browser features
 
 ### Dependencies
 
--   Möglichst wenig Abhängigkeiten
--   Bei Bedarf: beliebte npm Packages oder offizielle Kirby Plugins vorschlagen
+-   As few dependencies as possible
+-   When needed: suggest popular npm packages or official Kirby plugins
 
-### Kirby-Features
+### Kirby Features
 
--   Eingebaute Features nutzen (Blueprints, Snippets, Templates, Blocks)
--   Kirby Cookbook & Dokumentation als Referenz
+-   Use built-in features (Blueprints, Snippets, Templates, Blocks)
+-   Kirby Cookbook & Documentation as reference
 
-## Code-Standards
+## Code Standards
 
 -   PHP: PSR-12 (4 Spaces)
 -   CSS: 2 Spaces
--   Konsistente Nesting mit `&` Syntax
+-   Consistent nesting with `&` syntax

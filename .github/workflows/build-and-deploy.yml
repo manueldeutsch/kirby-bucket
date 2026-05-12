@@ -15,7 +15,7 @@ jobs:
 
       # Setup PHP
       - name: Setup PHP
-        uses: shivammathur/setup-php@2.32.0
+        uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
 
@@ -30,18 +30,29 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Cleanup
+      - name: Delete unnecessary files
+        run: |
+          rm -r node_modules
+          rm -r .git
+          rm -r .github
+          rm -r .parcel-cache
+          rm -r .gitignore
+          rm -r .editorconfig
+          rm -r .vscode
+          rm -r .claude
+          rm -r package-lock.json
+          rm -r package.json
+          rm -r composer.json
+          rm -r composer.lock
+          rm -r readme.md
+
       # FTP Deploy
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           server-dir: ${{ secrets.ftp_path }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.parcel-cache/**
-            **/.vscode/**
-            **/.claude/**
+          protocol: ftp

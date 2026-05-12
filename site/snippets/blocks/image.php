@@ -2,12 +2,14 @@
 
 /** @var \Kirby\Cms\Block $block */
 $alt      = $block->alt();
-$link     = $block->link();
+$link     = $block->link()->toUrl();
 $src      = null;
 $class    = $block->class()->isNotEmpty() ? $block->class()->esc() : '';
 $lazyload = $block->lazyload()->isTrue() ? 'loading="lazy"' : '';
 $icon     = $block->icon()->isTrue();
 $caption  = $block->caption()->isNotEmpty() ? $block->caption()->kt() : '';
+$width    = null;
+$height   = null;
 
 if ($block->location() == 'web') {
   $src = $block->src()->esc();
@@ -29,25 +31,27 @@ if ($block->location() == 'web') {
       '1920w' => ['width' => 1920, 'format' => 'webp', 'quality' => 85],
     ]);
     $sizes = '(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, (max-width: 1600px) 1600px, 1920px';
+    $width = $image->width();
+    $height = $image->height();
   }
 }
 
 ?>
 <?php if ($src): ?>
   <figure <?= Html::attr(['class' => $class], null, ' ') ?>>
-    <?php if ($link->isNotEmpty()): ?>
-      <a href="<?= Str::esc($link->toUrl()) ?>">
+    <?php if ($link): ?>
+      <a href="<?= Str::esc($link) ?>">
         <?php if ($icon): ?>
           <?= svg($src) ?>
         <?php else: ?>
-          <img src="<?= $src ?>" srcset="<?= $srcset ?>" sizes="<?= $sizes ?>" alt="<?= $alt->esc() ?>" <?= $lazyload ?>>
+          <img src="<?= $src ?>" srcset="<?= $srcset ?>" sizes="<?= $sizes ?>" width="<?= $width ?>" height="<?= $height ?>" alt="<?= $alt->esc() ?>" <?= $lazyload ?>>
         <?php endif ?>
       </a>
     <?php else: ?>
       <?php if ($icon): ?>
         <?= svg($src) ?>
       <?php else: ?>
-        <img src="<?= $src ?>" srcset="<?= $srcset ?>" sizes="<?= $sizes ?>" alt="<?= $alt->esc() ?>" <?= $lazyload ?>>
+        <img src="<?= $src ?>" srcset="<?= $srcset ?>" sizes="<?= $sizes ?>" width="<?= $width ?>" height="<?= $height ?>" alt="<?= $alt->esc() ?>" <?= $lazyload ?>>
       <?php endif ?>
     <?php endif ?>
     <?php if ($caption): ?>

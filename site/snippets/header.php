@@ -1,6 +1,6 @@
 <header class="header">
   <div class="wrapper">
-    <a class="logo" href="<?= $site->url() ?>">
+    <a class="logo" href="<?= $site->url() ?>" aria-label="<?= $site->title() ?> - Zur Startseite">
       <img src="<?= $kirby->url() ?>/assets/images/logo.svg" alt="<?= $site->title() ?>" width="35" height="35">
     </a>
 

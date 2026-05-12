@@ -43,6 +43,5 @@ tabs:
         width: 1/2
       link:
         label: field.blocks.image.link
-        type: text
-        icon: url
+        type: link
         width: 1/2

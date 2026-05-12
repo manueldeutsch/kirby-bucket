@@ -48,6 +48,11 @@ Icon
 
 /site/config/.license
 
+# Local settings
+# ---------------
+
+.claude/settings.local.json
+
 
 # Modules and vendor
 # ---------------

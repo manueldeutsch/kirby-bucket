@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       # Setup PHP
       - name: Setup PHP
@@ -49,11 +49,12 @@ jobs:
 
       # SFTP Deploy
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        uses: Creepios/sftp-action@v1.0.5
         with:
-          server: ${{ secrets.ftp_server_live }}
+          host: ${{ secrets.ftp_server_live }}
+          port: 22
           username: ${{ secrets.ftp_user_live }}
           password: ${{ secrets.ftp_password_live }}
-          server-dir: ${{ secrets.ftp_path_live }}
-          protocol: sftp
-          port: 22
+          remotePath: ${{ secrets.ftp_path_live }}
+          localPath: "./"
+          agent: null

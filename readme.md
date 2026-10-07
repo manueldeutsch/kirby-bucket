@@ -28,6 +28,8 @@ A minimalist developer boilerplate for Kirby CMS.
 
 Run `npm install` to install the frontend dependencies and `composer install` to install **Kirby**.
 
+For every new project, replace `content.salt` and `cookie.key` in `site/config/config.php` with fresh random values: `php -r 'echo bin2hex(random_bytes(32)) . PHP_EOL;'`
+
 Start PHP's built-in server with `composer start` and run `npm run dev` for CSS and JS compiling.
 
 Open `localhost:8000` to view the page or `localhost:8000/panel` to open the panel.

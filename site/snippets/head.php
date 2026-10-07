@@ -11,27 +11,34 @@
   <?php if ($page->seo_title()->isNotEmpty()) : ?>
     <title><?= $page->seo_title() ?></title>
     <meta property="og:title" content="<?= $page->seo_title() ?>" />
+    <meta name="twitter:title" content="<?= $page->seo_title() ?>" />
   <?php else : ?>
     <title><?= !$page->isHomePage() ? $page->title() . ' - ' : '' ?><?= $site->seo_title() ?></title>
     <meta property="og:title" content="<?= $page->title() ?> - <?= $site->seo_title() ?>" />
+    <meta name="twitter:title" content="<?= $page->title() ?> - <?= $site->seo_title() ?>" />
   <?php endif; ?>
 
   <?php if ($page->seo_description()->isNotEmpty()) : ?>
     <meta name="description" content="<?= $page->seo_description()->html() ?>">
     <meta property="og:description" content="<?= $page->seo_description()->html() ?>" />
+    <meta name="twitter:description" content="<?= $page->seo_description()->html() ?>" />
   <?php else : ?>
     <meta name="description" content="<?= $site->seo_description()->html() ?>">
     <meta property="og:description" content="<?= $site->seo_description()->html() ?>" />
+    <meta name="twitter:description" content="<?= $site->seo_description()->html() ?>" />
   <?php endif; ?>
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<?php echo html($page->url()); ?>" />
   <meta property="og:locale" content="<?= $kirby->language() ? $kirby->language()->locale(LC_ALL) : 'de_DE' ?>" />
 
+  <meta name="twitter:card" content="summary_large_image" />
   <?php if ($image = $page->seo_image()->toFile()) : ?>
     <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
+    <meta name="twitter:image" content="<?= $image->resize(1200)->url() ?>" />
   <?php elseif ($image = $site->seo_image()->toFile()) : ?>
     <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
+    <meta name="twitter:image" content="<?= $image->resize(1200)->url() ?>" />
   <?php endif; ?>
 
   <link rel="apple-touch-icon" sizes="180x180" href="<?= $kirby->url() ?>/assets/icons/apple-touch-icon.png">

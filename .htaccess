@@ -172,13 +172,13 @@ AddOutputFilterByType DEFLATE image/x-icon
 AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
 </IfModule>
 
-# Brotli compresses better than gzip, but mod_brotli is only available
-# on few shared hosts. Can be enabled without risk if supported.
-# <IfModule mod_brotli.c>
-# AddOutputFilterByType BROTLI_COMPRESS text/plain text/html text/css text/javascript text/xml text/markdown
-# AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/ld+json application/xml application/rss+xml application/atom+xml application/manifest+json
-# AddOutputFilterByType BROTLI_COMPRESS image/svg+xml image/x-icon image/vnd.microsoft.icon font/ttf font/otf
-# </IfModule>
+# Brotli compresses better than gzip (only active where mod_brotli is available,
+# otherwise gzip via mod_deflate is used)
+<IfModule mod_brotli.c>
+AddOutputFilterByType BROTLI_COMPRESS text/plain text/html text/css text/javascript text/xml text/markdown
+AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/ld+json application/xml application/rss+xml application/atom+xml application/manifest+json
+AddOutputFilterByType BROTLI_COMPRESS image/svg+xml image/x-icon image/vnd.microsoft.icon font/ttf font/otf
+</IfModule>
 
 # Additional configuration for HTTP caching
 <IfModule mod_expires.c>

@@ -3,43 +3,32 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="canonical" href="<?= $page->url() ?>">
   <meta name="theme-color" content="#ffffff">
 
-  <?php if ($page->seo_title()->isNotEmpty()) : ?>
-    <title><?= $page->seo_title() ?></title>
-    <meta property="og:title" content="<?= $page->seo_title() ?>" />
-    <meta name="twitter:title" content="<?= $page->seo_title() ?>" />
-  <?php else : ?>
-    <title><?= !$page->isHomePage() ? $page->title() . ' - ' : '' ?><?= $site->seo_title() ?></title>
-    <meta property="og:title" content="<?= $page->title() ?> - <?= $site->seo_title() ?>" />
-    <meta name="twitter:title" content="<?= $page->title() ?> - <?= $site->seo_title() ?>" />
+  <?php
+  $title = $page->seo_title()->or(
+    $page->isHomePage() ? $site->seo_title() : $page->title() . ' - ' . $site->seo_title()
+  );
+  $description = $page->seo_description()->or($site->seo_description());
+  $image = $page->seo_image()->toFile() ?? $site->seo_image()->toFile();
+  ?>
+
+  <title><?= $title->esc() ?></title>
+  <meta name="description" content="<?= $description->esc() ?>">
+
+  <meta property="og:title" content="<?= $title->esc() ?>">
+  <meta property="og:description" content="<?= $description->esc() ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<?= $page->url() ?>">
+  <meta property="og:site_name" content="<?= $site->title()->esc() ?>">
+  <meta property="og:locale" content="<?= $kirby->language() ? $kirby->language()->locale(LC_ALL) : 'de_DE' ?>">
+  <?php if ($image) : ?>
+    <meta property="og:image" content="<?= $image->resize(1200)->url() ?>">
   <?php endif; ?>
 
-  <?php if ($page->seo_description()->isNotEmpty()) : ?>
-    <meta name="description" content="<?= $page->seo_description()->html() ?>">
-    <meta property="og:description" content="<?= $page->seo_description()->html() ?>" />
-    <meta name="twitter:description" content="<?= $page->seo_description()->html() ?>" />
-  <?php else : ?>
-    <meta name="description" content="<?= $site->seo_description()->html() ?>">
-    <meta property="og:description" content="<?= $site->seo_description()->html() ?>" />
-    <meta name="twitter:description" content="<?= $site->seo_description()->html() ?>" />
-  <?php endif; ?>
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="<?php echo html($page->url()); ?>" />
-  <meta property="og:locale" content="<?= $kirby->language() ? $kirby->language()->locale(LC_ALL) : 'de_DE' ?>" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <?php if ($image = $page->seo_image()->toFile()) : ?>
-    <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
-    <meta name="twitter:image" content="<?= $image->resize(1200)->url() ?>" />
-  <?php elseif ($image = $site->seo_image()->toFile()) : ?>
-    <meta property="og:image" content="<?= $image->resize(1200)->url() ?>" />
-    <meta name="twitter:image" content="<?= $image->resize(1200)->url() ?>" />
-  <?php endif; ?>
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="apple-touch-icon" sizes="180x180" href="<?= $kirby->url() ?>/assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="<?= $kirby->url() ?>/assets/icons/favicon-32x32.png">

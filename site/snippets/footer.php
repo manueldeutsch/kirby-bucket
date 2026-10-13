@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="wrapper">
-    <span>&copy; <?= date("Y") ?> - <?= $site->title() ?></span>
+    <span>&copy; <?= date("Y") ?> - <?= $site->title()->esc() ?></span>
 
     <nav>
       <ul>
@@ -8,7 +8,7 @@
           <?php if ($item->template() != "error") : ?>
             <li>
               <a href="<?= $item->url() ?>" <?= r($item->isOpen(), "aria-current='page'") ?>>
-                <?= $item->title() ?>
+                <?= $item->title()->esc() ?>
               </a>
             </li>
           <?php endif; ?>

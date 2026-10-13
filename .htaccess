@@ -6,7 +6,11 @@
   ## Force HTTPS
 	# RewriteCond %{HTTPS} off
 	# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-  
+
+  ## Force HTTPS behind a proxy/load balancer (if %{HTTPS} is always "off" there)
+	# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
   ## Force WWW
 	# RewriteCond %{HTTP_HOST} !^www\. [NC]
 	# RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -51,6 +55,11 @@ RewriteRule ^site/(.*) index.php [L]
 # block direct access to Kirby and the Panel sources
 RewriteRule ^kirby/(.*) index.php [L]
 
+# Kirby Bucket: block Composer/npm dependencies and project meta files
+# (would otherwise leak exact package versions)
+RewriteRule ^(vendor|node_modules)/(.*) index.php [L]
+RewriteRule ^(composer\.(json|lock)|package(-lock)?\.json|readme\.md)$ index.php [NC,L]
+
 # make site links work
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -84,44 +93,92 @@ Header set X-Content-Type-Options "nosniff"
 
 ############################################
 
-# Kirby Bucket 
+# Kirby Bucket
 # Additional .htaccess configurations
 
+# Disable directory listings (e.g. /assets/ or /media/)
+# Recommended, but causes a 500 error if the host does not allow
+# "Options" in .htaccess (AllowOverride without Options)
+# Options -Indexes
+
+# Correct MIME types, so that compression and caching rules apply
+<IfModule mod_mime.c>
+AddType application/manifest+json   webmanifest
+AddType image/avif                  avif
+AddType image/webp                  webp
+AddType font/woff2                  woff2
+AddType font/woff                   woff
+AddDefaultCharset utf-8
+AddCharset utf-8 .css .js .mjs .json .webmanifest .xml .svg .txt
+</IfModule>
+
 # Additional configuration for HTTP security
-Header set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+<IfModule mod_headers.c>
+
 Header always set X-Frame-Options "SAMEORIGIN"
-Header always set X-Xss-Protection "1; mode=block"
-Header set Referrer-Policy "no-referrer"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+Header always set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+
+# Don't reveal the PHP version
+Header always unset X-Powered-By
+Header unset X-Powered-By
+
+# Strict referrer policy (more privacy): breaks e.g. YouTube embeds
+# (error 153) and referrer data in analytics
+# Header always set Referrer-Policy "no-referrer"
+
+# HSTS: Only enable once the site AND all subdomains are reliably reachable
+# via HTTPS. Browsers then refuse HTTP for the max-age duration,
+# which cannot be undone quickly. Start with a short max-age (e.g. 300)
+# and remove "includeSubDomains" if subdomains still run on HTTP.
+# Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
+
+# Isolate the browsing context: can break popups for OAuth logins
+# or payment providers (PayPal, Stripe Checkout)
+# Header always set Cross-Origin-Opener-Policy "same-origin"
+
+# Full Content Security Policy: needs to be adjusted per project
+# (inline scripts/styles, external services like analytics, fonts or embeds).
+# Test with "Content-Security-Policy-Report-Only" first.
+# Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+
+# X-XSS-Protection is deprecated and no longer supported by modern
+# browsers. The old "1; mode=block" can even introduce vulnerabilities.
+
+</IfModule>
 
 # Additional configuration for HTTP compression
+# (woff/woff2 and images like jpg/png/webp/avif are already compressed)
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/xml
 AddOutputFilterByType DEFLATE text/vtt
+AddOutputFilterByType DEFLATE text/markdown
 AddOutputFilterByType DEFLATE text/x-component
 AddOutputFilterByType DEFLATE application/xml
 AddOutputFilterByType DEFLATE application/xhtml+xml
 AddOutputFilterByType DEFLATE application/rss+xml
-AddOutputFilterByType DEFLATE application/x-httpd-php
-AddOutputFilterByType DEFLATE application/x-httpd-fastphp
 AddOutputFilterByType DEFLATE application/atom+xml
 AddOutputFilterByType DEFLATE application/ld+json
+AddOutputFilterByType DEFLATE application/manifest+json
+AddOutputFilterByType DEFLATE application/x-web-app-manifest+json
 AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 AddOutputFilterByType DEFLATE application/x-font-ttf
-AddOutputFilterByType DEFLATE application/font-woff2
-AddOutputFilterByType DEFLATE application/x-font-woff
-AddOutputFilterByType DEFLATE application/x-web-app-manifest+json
-AddOutputFilterByType DEFLATE font/woff
+AddOutputFilterByType DEFLATE font/ttf
+AddOutputFilterByType DEFLATE font/otf
 AddOutputFilterByType DEFLATE font/opentype
 AddOutputFilterByType DEFLATE image/svg+xml
 AddOutputFilterByType DEFLATE image/x-icon
-
-# Exception: Images
-SetEnvIfNoCase REQUEST_URI \.(?:gif|jpg|jpeg|png|svg)$ no-gzip dont-vary
-
-# Make sure proxies don't deliver the wrong content
-Header append Vary User-Agent env=!dont-vary
+AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
 </IfModule>
+
+# Brotli compresses better than gzip, but mod_brotli is only available
+# on few shared hosts. Can be enabled without risk if supported.
+# <IfModule mod_brotli.c>
+# AddOutputFilterByType BROTLI_COMPRESS text/plain text/html text/css text/javascript text/xml text/markdown
+# AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/ld+json application/xml application/rss+xml application/atom+xml application/manifest+json
+# AddOutputFilterByType BROTLI_COMPRESS image/svg+xml image/x-icon image/vnd.microsoft.icon font/ttf font/otf
+# </IfModule>
 
 # Additional configuration for HTTP caching
 <IfModule mod_expires.c>
@@ -129,6 +186,7 @@ ExpiresActive on
 ExpiresDefault                                      "access plus 1 month"
 
 # CSS
+# (cache busting via ?v=filemtime in head.php)
 ExpiresByType text/css                              "access plus 1 year"
 
 # Data interchange
@@ -147,11 +205,14 @@ ExpiresByType text/xml                              "access plus 0 seconds"
 ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
 ExpiresByType image/x-icon                          "access plus 1 week"
 
-# HTML - Behält die Website eine Stunde im Cache, neues wird erst nach Ablauf einer Stunde
-# angezeigt. Wenn nicht gewuenscht, bei 3600 eine Null eintragen
-ExpiresByType text/html                             "access plus 3600 seconds"
+# HTML - always revalidate, so content changes from the Panel
+# and fresh CSRF tokens in forms are delivered immediately.
+# Alternative: cache for one hour (changes become visible with a delay)
+ExpiresByType text/html                             "access plus 0 seconds"
+# ExpiresByType text/html                           "access plus 3600 seconds"
 
 # JavaScript
+# (cache busting via ?v=filemtime in foot.php)
 ExpiresByType application/javascript                "access plus 1 year"
 ExpiresByType application/x-javascript              "access plus 1 year"
 ExpiresByType text/javascript                       "access plus 1 year"
@@ -162,16 +223,18 @@ ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
 ExpiresByType text/cache-manifest                   "access plus 0 seconds"
 
 # Media files
-ExpiresByType audio/ogg                             "access plus 4 month"
-ExpiresByType image/bmp                             "access plus 4 month"
-ExpiresByType image/gif                             "access plus 4 month"
-ExpiresByType image/jpeg                            "access plus 4 month"
-ExpiresByType image/png                             "access plus 4 month"
-ExpiresByType image/svg+xml                         "access plus 4 month"
-ExpiresByType image/webp                            "access plus 4 month"
-ExpiresByType video/mp4                             "access plus 4 month"
-ExpiresByType video/ogg                             "access plus 4 month"
-ExpiresByType video/webm                            "access plus 4 month"
+ExpiresByType audio/ogg                             "access plus 4 months"
+ExpiresByType audio/mpeg                            "access plus 4 months"
+ExpiresByType image/avif                            "access plus 4 months"
+ExpiresByType image/bmp                             "access plus 4 months"
+ExpiresByType image/gif                             "access plus 4 months"
+ExpiresByType image/jpeg                            "access plus 4 months"
+ExpiresByType image/png                             "access plus 4 months"
+ExpiresByType image/svg+xml                         "access plus 4 months"
+ExpiresByType image/webp                            "access plus 4 months"
+ExpiresByType video/mp4                             "access plus 4 months"
+ExpiresByType video/ogg                             "access plus 4 months"
+ExpiresByType video/webm                            "access plus 4 months"
 
 # Web fonts
 
@@ -181,9 +244,11 @@ ExpiresByType font/eot                              "access plus 1 year"
 
 # OpenType
 ExpiresByType font/opentype                         "access plus 1 year"
+ExpiresByType font/otf                              "access plus 1 year"
 
 # TrueType
 ExpiresByType application/x-font-ttf                "access plus 1 year"
+ExpiresByType font/ttf                              "access plus 1 year"
 
 # Web Open Font Format (WOFF) 1.0
 ExpiresByType application/font-woff                 "access plus 1 year"

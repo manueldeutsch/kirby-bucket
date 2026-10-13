@@ -1,13 +1,14 @@
 <?php
 
-// Enable debug mode for localhost, staging, and werkstatt environments
-$host = $_SERVER['HTTP_HOST'] ?? '';
-$isDebug = str_contains($host, 'localhost') ||
-           str_contains($host, 'staging') ||
-           str_contains($host, 'werkstatt');
+// Enable debug mode and Panel installation only for local and staging environments
+$host = strtolower($_SERVER['SERVER_NAME'] ?? $_SERVER['HTTP_HOST'] ?? '');
+$isDev = $host === 'localhost' ||
+         $host === '127.0.0.1' ||
+         str_starts_with($host, 'staging.') ||
+         str_starts_with($host, 'werkstatt.');
 
 return [
-    "debug" => $isDebug,
+    "debug" => $isDev,
     // generate new values for every project:
     // php -r 'echo bin2hex(random_bytes(32)) . PHP_EOL;'
     "content" => [
@@ -17,7 +18,7 @@ return [
         "key" => "8439091daab21354e57e8f857a9ab564ae2e1a5bf5cbbeb95de1feaba82beec7",
     ],
     "panel" => [
-        "install" => true,
+        "install" => $isDev,
         'css' => 'assets/css/panel.css'
     ],
     "routes" => [

@@ -3,7 +3,7 @@
 
 <main class="wrapper">
   <section class="center">
-    <h1><?= $page->title() ?></h1>
+    <h1><?= $page->title()->esc() ?></h1>
   </section>
 </main>
 

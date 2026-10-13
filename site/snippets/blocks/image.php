@@ -1,59 +1,58 @@
 <?php
 
 /** @var \Kirby\Cms\Block $block */
-$alt      = $block->alt();
+$image    = $block->image()->toFile();
 $link     = $block->link()->toUrl();
-$src      = null;
-$class    = $block->class()->isNotEmpty() ? $block->class()->esc() : '';
-$lazyload = $block->lazyload()->isTrue() ? 'loading="lazy"' : '';
-$icon     = $block->icon()->isTrue();
+$class    = $block->class()->isNotEmpty() ? $block->class()->value() : null;
+$lazyload = $block->lazyload()->isTrue();
 $caption  = $block->caption()->isNotEmpty() ? $block->caption()->kt() : '';
-$width    = null;
-$height   = null;
 
-if ($block->location() == 'web') {
-  $src = $block->src()->esc();
-} elseif ($image = $block->image()->toFile()) {
-  $alt = $alt->or($image->alt());
+// SVG icons are inlined, everything else is rendered as responsive webp image
+$isIcon = $image && $block->icon()->isTrue() && $image->extension() === 'svg';
 
-  // For SVG icons, use the file object directly instead of generating thumbnails
-  if ($icon && $image->extension() === 'svg') {
-    $src = $image;
-  } else {
-    $src = $image->thumb(['width' => 1024, 'format' => 'webp', 'quality' => 85])->url();
-    $srcset = $image->srcset([
-      '320w' => ['width' => 320, 'format' => 'webp', 'quality' => 85],
-      '480w' => ['width' => 480, 'format' => 'webp', 'quality' => 85],
-      '768w' => ['width' => 768, 'format' => 'webp', 'quality' => 85],
-      '1024w' => ['width' => 1024, 'format' => 'webp', 'quality' => 85],
-      '1280w' => ['width' => 1280, 'format' => 'webp', 'quality' => 85],
-      '1600w' => ['width' => 1600, 'format' => 'webp', 'quality' => 85],
-      '1920w' => ['width' => 1920, 'format' => 'webp', 'quality' => 85],
-    ]);
-    $sizes = '(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, (max-width: 1600px) 1600px, 1920px';
-    $width = $image->width();
-    $height = $image->height();
+if ($image && !$isIcon) {
+  // only widths up to the original size (Kirby does not upscale)
+  $widths   = array_filter([320, 480, 768, 1024, 1280, 1600], fn ($width) => $width < $image->width());
+  $widths[] = min($image->width(), 1920);
+  $srcset = [];
+
+  foreach ($widths as $width) {
+    $srcset[$width . 'w'] = ['width' => $width, 'format' => 'webp', 'quality' => 85];
   }
+
+  // max. wrapper width is 1400px minus 2x 20px padding;
+  // "auto" lets browsers use the real rendered width for lazy images
+  $sizes = '(min-width: 1400px) 1360px, calc(100vw - 40px)';
+
+  $attr = [
+    'src'      => $image->thumb(['width' => min(1024, $image->width()), 'format' => 'webp', 'quality' => 85])->url(),
+    'srcset'   => $image->srcset($srcset),
+    'sizes'    => $lazyload ? 'auto, ' . $sizes : $sizes,
+    'width'    => $image->width(),
+    'height'   => $image->height(),
+    'alt'      => $block->alt()->or($image->alt())->value() ?? '',
+    'loading'  => $lazyload ? 'lazy' : null,
+    'decoding' => 'async',
+  ];
 }
 
 ?>
-<?php if ($src): ?>
-  <figure <?= Html::attr(['class' => $class], null, ' ') ?>>
+<?php if ($image): ?>
+  <figure<?= Html::attr(['class' => $class], null, ' ') ?>>
     <?php if ($link): ?>
       <a href="<?= Str::esc($link) ?>">
-        <?php if ($icon): ?>
-          <?= svg($src) ?>
-        <?php else: ?>
-          <img src="<?= $src ?>" srcset="<?= $srcset ?>" sizes="<?= $sizes ?>" width="<?= $width ?>" height="<?= $height ?>" alt="<?= $alt->esc() ?>" <?= $lazyload ?>>
-        <?php endif ?>
-      </a>
-    <?php else: ?>
-      <?php if ($icon): ?>
-        <?= svg($src) ?>
-      <?php else: ?>
-        <img src="<?= $src ?>" srcset="<?= $srcset ?>" sizes="<?= $sizes ?>" width="<?= $width ?>" height="<?= $height ?>" alt="<?= $alt->esc() ?>" <?= $lazyload ?>>
-      <?php endif ?>
     <?php endif ?>
+
+    <?php if ($isIcon): ?>
+      <?= svg($image) ?>
+    <?php else: ?>
+      <img <?= Html::attr($attr, false) ?>>
+    <?php endif ?>
+
+    <?php if ($link): ?>
+      </a>
+    <?php endif ?>
+
     <?php if ($caption): ?>
       <figcaption><?= $caption->inline() ?></figcaption>
     <?php endif ?>

@@ -3,8 +3,6 @@ name: Build & Deploy Live
 on:
   push:
     branches: live
-  pull_request:
-    branches: live
 
 jobs:
   build:
@@ -33,19 +31,17 @@ jobs:
       # Cleanup
       - name: Delete unnecessary files
         run: |
-          rm -r node_modules
-          rm -r .git
-          rm -r .github
-          rm -r .parcel-cache
-          rm -r .gitignore
-          rm -r .editorconfig
-          rm -r .vscode
-          rm -r .claude
-          rm -r package-lock.json
-          rm -r package.json
-          rm -r composer.json
-          rm -r composer.lock
-          rm -r readme.md
+          rm -rf node_modules
+          rm -rf .git
+          rm -rf .github
+          rm -rf .parcel-cache
+          rm -rf .gitignore
+          rm -rf .editorconfig
+          rm -rf .vscode
+          rm -rf .claude
+          rm -rf package-lock.json
+          rm -rf package.json
+          rm -rf readme.md
 
       # SFTP Deploy
       - name: 📂 Sync files

@@ -5,3 +5,5 @@ Disallow: /panel/
 Disallow: /kirby/
 Disallow: /site/
 Disallow: /content/
+
+# Sitemap: https://www.example.com/sitemap.xml

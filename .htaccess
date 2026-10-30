@@ -108,8 +108,10 @@ AddType image/avif                  avif
 AddType image/webp                  webp
 AddType font/woff2                  woff2
 AddType font/woff                   woff
+AddType text/vtt                    vtt
+AddType text/plain                  srt
 AddDefaultCharset utf-8
-AddCharset utf-8 .css .js .mjs .json .webmanifest .xml .svg .txt
+AddCharset utf-8 .css .js .mjs .json .webmanifest .xml .svg .txt .vtt .srt
 </IfModule>
 
 # Additional configuration for HTTP security
@@ -175,7 +177,7 @@ AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
 # Brotli compresses better than gzip (only active where mod_brotli is available,
 # otherwise gzip via mod_deflate is used)
 <IfModule mod_brotli.c>
-AddOutputFilterByType BROTLI_COMPRESS text/plain text/html text/css text/javascript text/xml text/markdown
+AddOutputFilterByType BROTLI_COMPRESS text/plain text/html text/css text/javascript text/xml text/markdown text/vtt
 AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/ld+json application/xml application/rss+xml application/atom+xml application/manifest+json
 AddOutputFilterByType BROTLI_COMPRESS image/svg+xml image/x-icon image/vnd.microsoft.icon font/ttf font/otf
 </IfModule>

@@ -1,7 +1,7 @@
 <?php snippet("head"); ?>
 <?php snippet("header"); ?>
 
-<main>
+<main id="main" tabindex="-1">
   <div class="wrapper">
     <?php snippet("layouts", ["field" => $page->layout()]); ?>
   </div>

@@ -5,3 +5,23 @@
 .hidden {
   display: none;
 }
+
+/* Accessibility */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  background: var(--background);
+  color: var(--typo);
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+main:focus {
+  outline: none;
+}

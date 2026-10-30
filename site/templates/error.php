@@ -1,7 +1,7 @@
 <?php snippet("head"); ?>
 <?php snippet("header"); ?>
 
-<main class="wrapper">
+<main id="main" class="wrapper" tabindex="-1">
   <section class="center">
     <h1><?= $page->title()->esc() ?></h1>
   </section>

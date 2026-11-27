@@ -9,5 +9,10 @@
       "name": "Manuel Deutsch",
       "email": "hi@manuel-deutsch.de"
     }
-  ]
+  ],
+  "extra": {
+    "kirby": {
+      "compatible": "^6.0"
+    }
+  }
 }

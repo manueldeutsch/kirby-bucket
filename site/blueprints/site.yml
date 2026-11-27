@@ -9,7 +9,7 @@ tabs:
         sections:
           pages:
             type: pages
-            template:
+            blueprints:
               - home
               - default
             image:

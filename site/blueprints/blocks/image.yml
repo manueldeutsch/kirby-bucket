@@ -7,7 +7,7 @@ tabs:
     fields:
       image:
         label: field.blocks.image.name
-        type: files
+        type: filepicker
         query: model.images
         multiple: false
         image:
